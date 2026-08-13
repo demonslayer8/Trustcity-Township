@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trust City Township — Your Dream Home Awaits at Bahadurgarh. Explore residential plots, township layout, location and site visit enquiries." />
+  <meta name="keywords" content="Trust City Township, Bahadurgarh plots, residential plots Bahadurgarh, Sector 36 Bahadurgarh, Sector 41 Bahadurgarh" />
+  <meta name="theme-color" content="#8d174d" />
+  <title>Trust City Township | Bahadurgarh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>/* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}</style>
+
+<body>
+  <header class="header" id="header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Trust City Township home">
+        <img src="assets/trust-city-logo.jpg" alt="Trust City Township logo" />
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="project.html">Project</a>
+        <a href="amenities.html">Amenities</a>
+        <a href="location.html">Location</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+     <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow">TRUST CITY TOWNSHIP • BAHADURGARH</span>
+          <h1>Your Dream Home <span>Awaits.</span></h1>
+          <p>
+            A thoughtfully planned plotted township in Sector 36 &amp; 41,
+            Bahadurgarh, Haryana — designed for comfortable living,
+            connectivity and future growth.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="project.html">Explore Project <span>→</span></a>
+            <a class="btn btn-light" href="contact.html">Book a Site Visit</a>
+          </div>
+
+          <div class="trust-strip">
+            <div><strong>RERA</strong><small>Approved Project</small></div>
+            <div><strong>SECTOR 36 &amp; 41</strong><small>Bahadurgarh</small></div>
+            <div><strong>PLANNED</strong><small>Residential Township</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro section" id="about">
+      <div class="container two-col">
+        <div>
+          <span class="section-label">ABOUT TRUST CITY</span>
+          <h2>A Place to Build<br><em>Your Future.</em></h2>
+        </div>
+        <div class="section-text">
+          <p>
+            Trust City Township is a planned residential plotted development
+            in Bahadurgarh, Haryana. The project brings together residential
+            plots, commercial spaces, planned roads and open areas to create
+            a well-organised environment for modern families.
+          </p>
+          <p>
+            Located in Sector 36 &amp; 41, the township offers an opportunity
+            to own a plot in a developing part of the NCR.
+          </p>
+          <a class="text-link" href="aboutus.html">Know More About Us <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section section-soft" id="amenities">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="section-label">WHY TRUST CITY</span>
+          <h2>Designed Around <em>Your Life.</em></h2>
+          <p>Thoughtful planning, convenient access and a place you can call your own.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="icon">⌖</div>
+            <h3>Strategic Location</h3>
+            <p>Located in Sector 36 &amp; 41, Bahadurgarh, Haryana.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">⌂</div>
+            <h3>Residential Plots</h3>
+            <p>Planned plots where you can create your dream home.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">↗</div>
+            <h3>Connectivity</h3>
+            <p>Positioned in the Bahadurgarh region with access to major routes.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">♧</div>
+            <h3>Planned Development</h3>
+            <p>Organised roads, open areas and a structured township layout.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">▦</div>
+            <h3>Commercial Spaces</h3>
+            <p>Commercial areas are incorporated into the township plan.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">✓</div>
+            <h3>RERA Registered</h3>
+            <p>Project RERA registration: HRERA-PKL-JJR-562-2024.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project section" id="project">
+      <div class="container">
+        <div class="project-heading">
+          <div>
+            <span class="section-label">THE PROJECT</span>
+            <h2>Explore the <em>Township Layout.</em></h2>
+          </div>
+          <p>
+            Explore the planned residential and commercial spaces across
+            Sector 36 &amp; 41.
+          </p>
+        </div>
+
+        <button class="layout-viewer" id="layoutViewer" aria-label="Open full township layout">
+          <img src="assets/trust-city-layout.jpg" alt="Trust City Township layout plan" />
+          <span class="zoom-badge">Click to view full layout ↗</span>
+        </button>
+
+        <div class="project-stats">
+          <div><span>Project Type</span><strong>Residential Plotted Township</strong></div>
+          <div><span>Location</span><strong>Sector 36 &amp; 41, Bahadurgarh</strong></div>
+          <div><span>RERA No.</span><strong>HRERA-PKL-JJR-562-2024</strong></div>
+          <div><span>Promoter</span><strong>GRSD Realtors LLP</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="location section section-dark" id="location">
+      <div class="container two-col location-grid">
+        <div>
+          <span class="section-label light">LOCATION ADVANTAGE</span>
+          <h2>Connected to Where<br><em>Life Takes You.</em></h2>
+          <p>
+            Trust City Township is situated in Bahadurgarh, Haryana, within
+            the Delhi NCR region. The project is planned around convenient
+            road connectivity and easy access to the surrounding urban areas.
+          </p>
+          <a class="btn btn-light" href="contact.html">Get Location Details</a>
+        </div>
+
+        <div class="location-card">
+          <div class="map-placeholder">
+            <div class="pin">●</div>
+            <div class="map-label">TRUST CITY TOWNSHIP</div>
+            <div class="map-sub">Sector 36 &amp; 41 • Bahadurgarh • Haryana</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="section-label">GALLERY</span>
+          <h2>Discover <em>Trust City.</em></h2>
+          <p>Project layout and development visuals.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item gallery-large" data-image="assets/GRSD Day_page-0001 (2) (1).jpg" aria-label="View full township layout">
+            <img src="assets/trust-city-layout.jpg" alt="Trust City township layout" />
+            <span>Township Layout</span>
+          </button>
+          <div class="gallery-placeholder"><img src="assets/GRSD Day_page-0001 (2) (1).jpg" alt="Project View"><span>Project Views</span></div>
+          <div class="gallery-placeholder"><span>Roads &amp; Infrastructure</span></div>
+          <div class="gallery-placeholder"><span>Site Development</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog section section-soft" id="blog">
+      <div class="container">
+        <div class="project-heading">
+          <div>
+            <span class="section-label">FROM THE BLOG</span>
+            <h2>Property Insights &amp; <em>Updates.</em></h2>
+          </div>
+          <a class="text-link" href="#contact">View All Articles →</a>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-image">PROPERTY GUIDE</div>
+            <div class="blog-body">
+              <span>BUYING GUIDE</span>
+              <h3>Things to Check Before Buying a Residential Plot</h3>
+              <p>A practical checklist for buyers considering plotted development.</p>
+              <a href="#contact">Read Article →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-image">BAHADURGARH</div>
+            <div class="blog-body">
+              <span>LOCATION</span>
+              <h3>Why Bahadurgarh Is Important for Delhi NCR Growth</h3>
+              <p>Understand the location, connectivity and development story.</p>
+              <a href="#contact">Read Article →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-image">TRUST CITY</div>
+            <div class="blog-body">
+              <span>PROJECT UPDATE</span>
+              <h3>Inside Trust City Township: A Layout Overview</h3>
+              <p>Take a closer look at the planning behind the township.</p>
+              <a href="#contact">Read Article →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section" id="contact">
+      <div class="container cta-box">
+        <div>
+          <span class="section-label">TAKE THE FIRST STEP</span>
+          <h2>Your Plot. Your Home.<br><em>Your Future.</em></h2>
+          <p>Schedule a site visit and explore Trust City Township, Bahadurgarh.</p>
+        </div>
+        <a class="btn btn-primary" href="#enquiry">Book a Site Visit →</a>
+      </div>
+    </section>
+
+    <section class="contact section section-soft" id="enquiry">
+      <div class="container contact-grid">
+        <div>
+          <span class="section-label">CONTACT US</span>
+          <h2>Let's Start Your<br><em>Journey.</em></h2>
+          <p>Share your details and our team will get in touch with you.</p>
+
+          <div class="contact-details">
+            <a href="tel:18002023650"><span>PHONE</span>1800-202-3650</a>
+            <a href="mailto:corporate@trustcitytownship.com"><span>EMAIL</span>corporate@trustcitytownship.com</a>
+            <div><span>LOCATION</span>Sector 36& amp; 41, Bahadurgarh, Haryana</div>
+          </div>
+        </div>
+
+        <form class="enquiry-form" id="enquiryForm">
+          <div class="form-row">
+            <label>Name *
+              <input type="text" name="name" placeholder="Your full name" required />
+            </label>
+            <label>Mobile Number *
+              <input type="tel" name="phone" placeholder="10-digit mobile number" required />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Email
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+            <label>Preferred Date
+              <input type="date" name="date" />
+            </label>
+          </div>
+          <label>Message
+            <textarea name="message" rows="5" placeholder="Tell us what you would like to know..."></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Schedule Site Visit →</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/trust-city-logo.jpg" alt="Trust City Township" class="footer-logo" />
+        <p>Your Dream Home Awaits at Bahadurgarh.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#about">About Us</a>
+        <a href="#project">Project</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#location">Location</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="#gallery">Gallery</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#enquiry">Book a Site Visit</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:18002023650">1800-202-3650</a>
+        <a href="mailto:corporate@trustcitytownship.com">corporate@trustcitytownship.com</a>
+        <p>Sector 36& amp; 41, Bahadurgarh, Haryana</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 Trust City Township. All Rights Reserved.</span>
+        <span>RERA No. HRERA-PKL-JJR-562-2024</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="imageModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <img id="modalImage" src="" alt="Trust City Township layout" />
+  </div>
+
+  <a class="floating-whatsapp" href="https://wa.me/918000000000?text=Hello%20Trust%20City%20Township%2C%20I%20would%20like%20project%20details." target="_blank" rel="noopener" aria-label="WhatsApp">
+    WA
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

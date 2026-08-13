@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | Trust City Township</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --wine: #861548;
+      --dark-wine: #351321;
+      --pink: #e8a4bb;
+      --light-pink: #f4e3e9;
+      --cream: #faf7f4;
+      --white: #ffffff;
+      --black: #211d20;
+      --gray: #777176;
+      --border: #e8dfe3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--black);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--wine);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 23px;
+      background: var(--wine);
+      color: white;
+      border: none;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.45);
+      color: white;
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 84px;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo img {
+      width: 125px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: #494449;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--wine);
+    }
+
+    .nav-btn {
+      background: var(--wine);
+      color: white;
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 28px;
+      color: var(--wine);
+      cursor: pointer;
+    }
+
+
+    /* =========================================
+       CONTACT HERO
+    ========================================= */
+
+    .contact-hero {
+      min-height: 720px;
+      padding-top: 84px;
+      display: grid;
+      grid-template-columns: 44% 56%;
+      background: var(--dark-wine);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      padding:
+        80px
+        50px
+        80px
+        max(20px, calc((100vw - 1180px) / 2));
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 580px;
+    }
+
+    .hero-eyebrow {
+      color: var(--pink);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(55px, 6vw, 92px);
+      margin: 25px 0;
+      color: white;
+    }
+
+    .hero-content h1 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .hero-content p {
+      color: rgba(255,255,255,.72);
+      max-width: 510px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 636px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-info {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      background: white;
+      padding: 20px 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    }
+
+    .hero-info strong {
+      display: block;
+      color: var(--wine);
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .hero-info span {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+
+    /* =========================================
+       CONTACT INTRO
+    ========================================= */
+
+    .contact-intro {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .contact-intro h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .contact-intro h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .contact-intro p {
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+
+    /* =========================================
+       CONTACT AREA
+    ========================================= */
+
+    .contact-section {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+
+    /* =========================================
+       CONTACT DETAILS
+    ========================================= */
+
+    .contact-details {
+      background: var(--dark-wine);
+      color: white;
+      padding: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-details::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(232,164,187,.2);
+      border-radius: 50%;
+      right: -100px;
+      bottom: -100px;
+    }
+
+    .contact-details h2 {
+      font-size: 44px;
+      margin: 15px 0 20px;
+    }
+
+    .contact-details > p {
+      color: rgba(255,255,255,.68);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 18px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(232,164,187,.12);
+      color: var(--pink);
+      font-size: 18px;
+    }
+
+    .contact-item h4 {
+      color: white;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 4px;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: rgba(255,255,255,.68);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .contact-item a:hover {
+      color: var(--pink);
+    }
+
+
+    /* =========================================
+       CONTACT FORM
+    ========================================= */
+
+    .contact-form {
+      background: white;
+      padding: 50px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-form h2 {
+      font-size: 42px;
+      margin: 15px 0 10px;
+    }
+
+    .contact-form > p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #4c464a;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 14px 15px;
+      outline: none;
+      color: var(--black);
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--wine);
+      box-shadow: 0 0 0 3px rgba(134,21,72,.06);
+    }
+
+    .form-group textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .form-note {
+      color: #999;
+      font-size: 10px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================
+       WHY CONTACT US
+    ========================================= */
+
+    .why-contact {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .why-contact h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .why-contact h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .why-contact > p {
+      color: var(--gray);
+      margin-top: 18px;
+      line-height: 1.9;
+    }
+
+    .contact-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 55px;
+    }
+
+    .benefit {
+      padding: 35px 25px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .benefit-number {
+      color: var(--wine);
+      font-family: "Playfair Display", serif;
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .benefit h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .benefit p {
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================================
+       MAP / LOCATION
+    ========================================= */
+
+    .location-section {
+      background: var(--light-pink);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .location-content h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .location-content h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .location-content p {
+      color: var(--gray);
+      margin: 20px 0;
+      line-height: 1.9;
+    }
+
+    .map-box {
+      min-height: 390px;
+      background:
+        linear-gradient(
+          135deg,
+          #e7d9de,
+          #f7eef1
+        );
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(134,21,72,.12);
+    }
+
+    .map-box::before,
+    .map-box::after {
+      content: "";
+      position: absolute;
+      background: rgba(134,21,72,.12);
+    }
+
+    .map-box::before {
+      width: 140%;
+      height: 1px;
+      left: -20%;
+      top: 50%;
+      transform: rotate(-12deg);
+    }
+
+    .map-box::after {
+      height: 140%;
+      width: 1px;
+      left: 55%;
+      top: -20%;
+      transform: rotate(15deg);
+    }
+
+    .map-pin {
+      position: absolute;
+      top: 48%;
+      left: 55%;
+      transform: translate(-50%, -50%);
+      width: 62px;
+      height: 62px;
+      border-radius: 50% 50% 50% 0;
+      transform-origin: center;
+      rotate: -45deg;
+      background: var(--wine);
+      box-shadow: 0 10px 30px rgba(134,21,72,.25);
+    }
+
+    .map-pin::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 22px;
+      left: 22px;
+    }
+
+    .map-label {
+      position: absolute;
+      top: 60%;
+      left: 59%;
+      background: white;
+      padding: 12px 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--wine);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .cta {
+      background: var(--dark-wine);
+      color: white;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta .section-label {
+      color: var(--pink);
+    }
+
+    .cta h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .cta h2 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.65);
+      margin-top: 15px;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: #24151d;
+      color: white;
+      padding-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      width: 160px;
+      background: white;
+      padding: 5px;
+    }
+
+    footer h4 {
+      color: var(--pink);
+      margin-bottom: 18px;
+    }
+
+    footer a,
+    footer p {
+      display: block;
+      color: #bcb1b6;
+      font-size: 13px;
+      margin: 9px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 18px 0;
+      color: #8f8288;
+      font-size: 11px;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media(max-width: 950px) {
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .contact-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 500px;
+      }
+
+      .hero-content {
+        padding: 70px 30px;
+      }
+
+      .contact-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width: 680px) {
+
+      header,
+      .nav {
+        height: 74px;
+      }
+
+      .logo img {
+        width: 105px;
+        height: 60px;
+      }
+
+      .menu-btn {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 15px;
+        right: 15px;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .contact-hero {
+        padding-top: 74px;
+      }
+
+      .hero-content {
+        padding: 65px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 52px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+
+      .contact-details,
+      .contact-form {
+        padding: 30px 22px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .contact-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        display: block;
+      }
+
+      .cta .btn {
+        margin-top: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom .container {
+        display: block;
+      }
+
+      .footer-bottom span {
+        display: block;
+        margin: 5px 0;
+      }
+
+    }
+
+    /* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       HEADER
+  ========================================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township Logo"
+        >
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html" class="active">
+          Contact
+        </a>
+
+      </nav>
+
+
+     <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =========================================
+         CONTACT HERO
+    ========================================= -->
+
+    <section class="contact-hero">
+
+
+      <div class="hero-content">
+
+        <div class="hero-inner">
+
+
+          <div class="hero-eyebrow">
+            CONTACT • TRUST CITY TOWNSHIP
+          </div>
+
+
+          <h1>
+
+            Let's Talk About
+            <br>
+
+            <em>Your Future.</em>
+
+          </h1>
+
+
+          <p>
+
+            Have questions about Trust City Township,
+            the project, available plots or a site visit?
+            Our team is here to help you with the information
+            you need.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#contact-form"
+              class="btn"
+            >
+              Send An Enquiry
+            </a>
+
+
+            <a
+              href="tel:18002023650"
+              class="btn btn-outline"
+            >
+              Call Us
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-image">
+
+        <img
+          src="assets/contact-header.jpg"
+          alt="Trust City Township Contact"
+        >
+
+
+        <div class="hero-info">
+
+          <strong>
+            TRUST CITY TOWNSHIP
+          </strong>
+
+          <span>
+            Sector 36 &amp; 41 • Bahadurgarh, Haryana
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         INTRO
+    ========================================= -->
+
+    <section class="section">
+
+      <div class="container contact-intro">
+
+
+        <div>
+
+          <span class="section-label">
+            WE ARE HERE TO HELP
+          </span>
+
+
+          <h2>
+
+            Your Questions.
+            <em>Our Answers.</em>
+
+          </h2>
+
+        </div>
+
+
+
+        <div>
+
+          <p>
+
+            Choosing a property is an important decision.
+            Whether you are exploring Trust City for your
+            own home, future plans or investment, we can
+            help you understand the project better.
+
+          </p>
+
+
+          <p>
+
+            Get in touch with our team to learn more about
+            the township, location, layout, amenities and
+            site visit options.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CONTACT FORM + DETAILS
+    ========================================= -->
+
+    <section
+      class="section contact-section"
+      id="contact-form"
+    >
+
+      <div class="container contact-grid">
+
+
+        <!-- CONTACT DETAILS -->
+
+        <div class="contact-details">
+
+
+          <span class="section-label" style="color:var(--pink);">
+            GET IN TOUCH
+          </span>
+
+
+          <h2>
+            Let's Start
+            <br>
+            A Conversation.
+          </h2>
+
+
+          <p>
+
+            Reach out to us for project information,
+            enquiries or to schedule a visit to
+            Trust City Township.
+
+          </p>
+
+
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              ☎
+            </div>
+
+            <div>
+
+              <h4>
+                Call Us
+              </h4>
+
+              <a href="tel:18002023650">
+                1800-202-3650
+              </a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              @
+            </div>
+
+            <div>
+
+              <h4>
+                Email
+              </h4>
+
+              <a href="mailto:corporate@trustcitytownship.com">
+                corporate@trustcitytownship.com
+              </a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              ⌖
+            </div>
+
+            <div>
+
+              <h4>
+                Project Location
+              </h4>
+
+              <p>
+                Sector 36 &amp; 41,
+                Bahadurgarh, Haryana
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              ◷
+            </div>
+
+            <div>
+
+              <h4>
+                Site Visit
+              </h4>
+
+              <p>
+                Schedule your visit with our team.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form">
+
+
+          <span class="section-label">
+            SEND AN ENQUIRY
+          </span>
+
+
+          <h2>
+            How Can We
+            <span style="color:var(--wine);">
+              Help?
+            </span>
+          </h2>
+
+
+          <p>
+            Fill in your details and our team will
+            get back to you.
+          </p>
+
+
+          <form id="enquiryForm">
+
+
+            <div class="form-row">
+
+
+              <div class="form-group">
+
+                <label for="name">
+                  Full Name *
+                </label>
+
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="phone">
+                  Phone Number *
+                </label>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                >
+
+              </div>
+
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+              <div class="form-group">
+
+                <label for="email">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="interest">
+                  I'm Interested In
+                </label>
+
+                <select
+                  id="interest"
+                  name="interest"
+                >
+
+                  <option value="">
+                    Select an option
+                  </option>
+
+                  <option value="residential-plot">
+                    Residential Plot
+                  </option>
+
+                  <option value="commercial">
+                    Commercial Space
+                  </option>
+
+                  <option value="site-visit">
+                    Site Visit
+                  </option>
+
+                  <option value="project-information">
+                    Project Information
+                  </option>
+
+                  <option value="other">
+                    Other Enquiry
+                  </option>
+
+                </select>
+
+              </div>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+
+              <label for="message">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us how we can help..."
+              ></textarea>
+
+            </div>
+
+
+
+            <button
+              type="submit"
+              class="btn form-submit"
+            >
+              Submit Enquiry →
+            </button>
+
+
+            <p class="form-note">
+              By submitting this form, you agree to be
+              contacted by the Trust City Township team
+              regarding your enquiry.
+            </p>
+
+
+          </form>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         WHY CONTACT
+    ========================================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+
+        <div class="why-contact">
+
+          <span class="section-label">
+            WHY CONNECT WITH US
+          </span>
+
+
+          <h2>
+
+            Make Your Next Step
+            <em>With Clarity.</em>
+
+          </h2>
+
+
+          <p>
+
+            We believe a property conversation should
+            begin with clear information and end with
+            confidence in your decision.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="contact-benefits">
+
+
+          <div class="benefit">
+
+            <div class="benefit-number">
+              01
+            </div>
+
+            <h3>
+              Project Information
+            </h3>
+
+            <p>
+
+              Get information about the township,
+              layout, plots and development.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="benefit">
+
+            <div class="benefit-number">
+              02
+            </div>
+
+            <h3>
+              Site Visit
+            </h3>
+
+            <p>
+
+              Schedule a visit and experience the
+              project and its surroundings in person.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="benefit">
+
+            <div class="benefit-number">
+              03
+            </div>
+
+            <h3>
+              Personal Assistance
+            </h3>
+
+            <p>
+
+              Speak with our team about your
+              requirements and property plans.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         LOCATION
+    ========================================= -->
+
+    <section class="section location-section">
+
+      <div class="container location-grid">
+
+
+        <div class="location-content">
+
+          <span class="section-label">
+            FIND TRUST CITY
+          </span>
+
+
+          <h2>
+
+            Come See
+            <em>The Place.</em>
+
+          </h2>
+
+
+          <p>
+
+            Trust City Township is located in Sector
+            36 &amp; 41, Bahadurgarh, Haryana.
+
+          </p>
+
+
+          <a
+            href="location.html"
+            class="btn"
+          >
+            Explore Location →
+          </a>
+
+        </div>
+
+
+
+        <div class="map-box">
+
+          <div class="map-pin"></div>
+
+          <div class="map-label">
+            Trust City Township
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="section cta">
+
+      <div class="container cta-inner">
+
+
+        <div>
+
+          <span class="section-label">
+            YOUR FUTURE STARTS WITH A CONVERSATION
+          </span>
+
+
+          <h2>
+
+            Have Questions?
+            <br>
+
+            <em>Let's Talk.</em>
+
+          </h2>
+
+
+          <p>
+
+            Get in touch with Trust City Township today.
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="#contact-form"
+            class="btn"
+          >
+            Send An Enquiry →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+
+      <div>
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township"
+          class="footer-logo"
+        >
+
+        <p>
+          Your Dream Home Awaits at Bahadurgarh.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Explore
+        </h4>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Connect
+        </h4>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="#contact-form">
+          Book a Site Visit
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Contact
+        </h4>
+
+        <a href="tel:18002023650">
+          1800-202-3650
+        </a>
+
+        <a href="mailto:corporate@trustcitytownship.com">
+          corporate@trustcitytownship.com
+        </a>
+
+        <p>
+          Sector 36 &amp; 41,
+          Bahadurgarh, Haryana
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <span>
+          © 2026 Trust City Township.
+          All Rights Reserved.
+        </span>
+
+        <span>
+          RERA No. HRERA-PKL-JJR-562-2024
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+      navLinks.classList.toggle("show");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navLinks.classList.remove("show");
+
+        });
+
+      });
+
+
+
+    /* CONTACT FORM */
+
+    const enquiryForm =
+      document.getElementById("enquiryForm");
+
+
+    enquiryForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+
+      const name =
+        document.getElementById("name").value.trim();
+
+      const phone =
+        document.getElementById("phone").value.trim();
+
+      const interest =
+        document.getElementById("interest").value;
+
+      const message =
+        document.getElementById("message").value.trim();
+
+
+      if (!name || !phone) {
+
+        alert("Please enter your name and phone number.");
+
+        return;
+
+      }
+
+
+      /*
+        FRONT-END DEMO ONLY.
+
+        Connect this form to your backend/API,
+        Formspree, Netlify Forms, EmailJS, PHP,
+        Node.js, etc. for actual enquiry submission.
+      */
+
+      alert(
+        "Thank you, " +
+        name +
+        "! Your enquiry has been received."
+      );
+
+
+      enquiryForm.reset();
+
+    });
+
+  </script>
+
+
+</body>
+</html>

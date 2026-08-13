@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Learn more about Trust City Township, its vision, planning approach and the development behind a thoughtfully planned plotted township in Bahadurgarh."
+  >
+
+  <title>About Us | Trust City Township</title>
+
+
+  <!-- GOOGLE FONTS — SAME AS PROJECT PAGE -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
+
+    :root {
+
+      --wine: #861548;
+      --dark-wine: #351321;
+      --pink: #e8a4bb;
+      --light-pink: #f4e3e9;
+      --cream: #faf7f4;
+      --white: #ffffff;
+      --black: #211d20;
+      --gray: #777176;
+      --border: #e8dfe3;
+
+    }
+
+
+    * {
+
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+
+    body {
+
+      font-family: "DM Sans", sans-serif;
+
+      color: var(--black);
+
+      background: var(--white);
+
+      line-height: 1.6;
+
+    }
+
+
+    img {
+
+      max-width: 100%;
+
+      display: block;
+
+    }
+
+
+    a {
+
+      text-decoration: none;
+
+      color: inherit;
+
+    }
+
+
+    button {
+
+      font-family: inherit;
+
+      cursor: pointer;
+
+    }
+
+
+    .container {
+
+      width: min(1180px, calc(100% - 40px));
+
+      margin: auto;
+
+    }
+
+
+    h1,
+    h2,
+    h3 {
+
+      font-family: "Playfair Display", serif;
+
+      line-height: 1.08;
+
+    }
+
+
+    h2 {
+
+      font-size: clamp(42px, 5vw, 68px);
+
+    }
+
+
+    h2 em,
+    h1 em {
+
+      color: var(--wine);
+
+      font-style: normal;
+
+    }
+
+
+    .section {
+
+      padding: 110px 0;
+
+    }
+
+
+    .section-label {
+
+      color: var(--wine);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .section-heading {
+
+      max-width: 700px;
+
+    }
+
+
+    .section-heading.center {
+
+      margin-left: auto;
+
+      margin-right: auto;
+
+      text-align: center;
+
+    }
+
+
+    .section-heading h2 {
+
+      margin-top: 15px;
+
+    }
+
+
+    .section-heading p {
+
+      color: var(--gray);
+
+      margin-top: 18px;
+
+      line-height: 1.8;
+
+    }
+
+
+    .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 15px 23px;
+
+      background: var(--wine);
+
+      color: white;
+
+      border: none;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: .07em;
+
+      transition: .25s;
+
+    }
+
+
+    .btn:hover {
+
+      transform: translateY(-3px);
+
+    }
+
+
+    .btn-outline {
+
+      background: transparent;
+
+      border: 1px solid rgba(255,255,255,.4);
+
+      color: white;
+
+    }
+
+
+    /* =====================================================
+       HEADER
+       SAME DESIGN AS PROJECT PAGE
+    ===================================================== */
+
+    header {
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      height: 84px;
+
+      z-index: 1000;
+
+      background: rgba(255,255,255,.96);
+
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid #eee;
+
+    }
+
+
+    .nav {
+
+      height: 84px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 25px;
+
+    }
+
+
+    .logo img {
+
+      width: 125px;
+
+      height: 68px;
+
+      object-fit: contain;
+
+    }
+
+
+    .nav-links {
+
+      margin-left: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 23px;
+
+    }
+
+
+    .nav-links a {
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      color: #494449;
+
+      transition: .2s;
+
+    }
+
+
+    .nav-links a:hover,
+    .nav-links a.active {
+
+      color: var(--wine);
+
+    }
+
+
+    .nav-btn {
+
+      background: var(--wine);
+
+      color: white;
+
+      padding: 14px 20px;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: .07em;
+
+    }
+
+
+    .menu-btn {
+
+      display: none;
+
+      border: none;
+
+      background: none;
+
+      font-size: 28px;
+
+      color: var(--wine);
+
+    }
+
+
+    /* =====================================================
+       ABOUT HERO
+       SAME HERO DESIGN AS PROJECT PAGE
+       ONLY CONTENT IS CHANGED
+    ===================================================== */
+
+    .project-hero {
+
+      min-height: 720px;
+
+      padding-top: 84px;
+
+      display: grid;
+
+      grid-template-columns: 44% 56%;
+
+      background: var(--dark-wine);
+
+    }
+
+
+    .hero-content {
+
+      display: flex;
+
+      align-items: center;
+
+      padding:
+        80px
+        50px
+        80px
+        max(20px, calc((100vw - 1180px) / 2));
+
+      color: white;
+
+    }
+
+
+    .hero-inner {
+
+      max-width: 580px;
+
+    }
+
+
+    .hero-eyebrow {
+
+      color: var(--pink);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .hero-content h1 {
+
+      font-size: clamp(55px, 6vw, 92px);
+
+      margin: 25px 0;
+
+      color: white;
+
+    }
+
+
+    .hero-content h1 em {
+
+      color: var(--pink);
+
+    }
+
+
+    .hero-content p {
+
+      color: rgba(255,255,255,.72);
+
+      max-width: 510px;
+
+      font-size: 16px;
+
+      line-height: 1.8;
+
+    }
+
+
+    .hero-buttons {
+
+      display: flex;
+
+      gap: 12px;
+
+      margin-top: 32px;
+
+    }
+
+
+    .hero-image {
+
+      position: relative;
+
+      min-height: 636px;
+
+      background: #ddd;
+
+      overflow: hidden;
+
+    }
+
+
+    .hero-image img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+    }
+
+
+    .hero-info {
+
+      position: absolute;
+
+      bottom: 25px;
+
+      left: 25px;
+
+      background: white;
+
+      padding: 20px 24px;
+
+      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+
+    }
+
+
+    .hero-info strong {
+
+      display: block;
+
+      color: var(--wine);
+
+      font-size: 12px;
+
+      letter-spacing: .1em;
+
+    }
+
+
+    .hero-info span {
+
+      color: var(--gray);
+
+      font-size: 12px;
+
+    }
+
+
+    /* =====================================================
+       ABOUT INTRO
+    ===================================================== */
+
+    .intro-grid {
+
+      display: grid;
+
+      grid-template-columns: 42% 58%;
+
+      gap: 75px;
+
+      align-items: center;
+
+    }
+
+
+    .intro-left h2 {
+
+      margin-top: 18px;
+
+    }
+
+
+    .intro-right p {
+
+      color: var(--gray);
+
+      margin-bottom: 20px;
+
+      line-height: 1.9;
+
+    }
+
+
+    .intro-image {
+
+      margin-top: 35px;
+
+      overflow: hidden;
+
+    }
+
+
+    .intro-image img {
+
+      width: 100%;
+
+      height: 360px;
+
+      object-fit: cover;
+
+    }
+
+
+    /* =====================================================
+       OUR VISION
+    ===================================================== */
+
+    .vision {
+
+      background: var(--cream);
+
+    }
+
+
+    .vision-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+      margin-top: 50px;
+
+    }
+
+
+    .vision-card {
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      padding: 38px;
+
+      transition: .25s;
+
+    }
+
+
+    .vision-card:hover {
+
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 20px 50px
+        rgba(50,20,40,.08);
+
+    }
+
+
+    .vision-number {
+
+      color: var(--pink);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 48px;
+
+      line-height: 1;
+
+    }
+
+
+    .vision-card h3 {
+
+      font-size: 27px;
+
+      margin: 15px 0;
+
+    }
+
+
+    .vision-card p {
+
+      color: var(--gray);
+
+      line-height: 1.8;
+
+    }
+
+
+    /* =====================================================
+       OUR APPROACH
+    ===================================================== */
+
+    .approach-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
+
+      margin-top: 50px;
+
+    }
+
+
+    .approach-card {
+
+      border: 1px solid var(--border);
+
+      padding: 38px;
+
+      background: white;
+
+      transition: .25s;
+
+    }
+
+
+    .approach-card:hover {
+
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 20px 50px
+        rgba(50,20,40,.08);
+
+    }
+
+
+    .approach-number {
+
+      color: var(--pink);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 38px;
+
+    }
+
+
+    .approach-card h3 {
+
+      font-size: 27px;
+
+      margin: 10px 0;
+
+    }
+
+
+    .approach-card p {
+
+      color: var(--gray);
+
+      line-height: 1.8;
+
+      margin: 0;
+
+    }
+
+
+    /* =====================================================
+       TRUST CITY PROMISE
+    ===================================================== */
+
+    .promise {
+
+      background: var(--dark-wine);
+
+      color: white;
+
+    }
+
+
+    .promise-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 80px;
+
+      align-items: center;
+
+    }
+
+
+    .promise h2 {
+
+      margin-top: 15px;
+
+      color: white;
+
+    }
+
+
+    .promise h2 em {
+
+      color: var(--pink);
+
+    }
+
+
+    .promise-intro {
+
+      color: rgba(255,255,255,.7);
+
+      line-height: 1.9;
+
+      margin-top: 20px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .promise-list {
+
+      display: grid;
+
+      gap: 14px;
+
+    }
+
+
+    .promise-item {
+
+      display: flex;
+
+      gap: 16px;
+
+      padding: 20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      background:
+        rgba(255,255,255,.04);
+
+    }
+
+
+    .promise-item b {
+
+      color: var(--pink);
+
+      font-size: 18px;
+
+    }
+
+
+    .promise-item h3 {
+
+      font-family: "DM Sans", sans-serif;
+
+      font-size: 15px;
+
+      margin-bottom: 5px;
+
+    }
+
+
+    .promise-item p {
+
+      color:
+        rgba(255,255,255,.62);
+
+      font-size: 13px;
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =====================================================
+       FACTS
+    ===================================================== */
+
+    .facts {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      border-top:
+        1px solid var(--border);
+
+      border-left:
+        1px solid var(--border);
+
+      margin-top: 45px;
+
+    }
+
+
+    .fact {
+
+      padding: 30px 25px;
+
+      border-right:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+
+    }
+
+
+    .fact strong {
+
+      display: block;
+
+      color: var(--wine);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 21px;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .fact span {
+
+      color: var(--gray);
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta {
+
+      background: var(--light-pink);
+
+    }
+
+
+    .cta-inner {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 35px;
+
+    }
+
+
+    .cta h2 {
+
+      margin-top: 15px;
+
+    }
+
+
+    .cta p {
+
+      color: var(--gray);
+
+      margin-top: 15px;
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      background: #24151d;
+
+      color: white;
+
+      padding-top: 60px;
+
+    }
+
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr 1.5fr;
+
+      gap: 40px;
+
+      padding-bottom: 50px;
+
+    }
+
+
+    .footer-logo {
+
+      width: 160px;
+
+      background: white;
+
+      padding: 5px;
+
+    }
+
+
+    footer h4 {
+
+      color: var(--pink);
+
+      margin-bottom: 18px;
+
+    }
+
+
+    footer a,
+    footer p {
+
+      display: block;
+
+      color: #bcb1b6;
+
+      font-size: 13px;
+
+      margin: 9px 0;
+
+    }
+
+
+    .footer-bottom {
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.1);
+
+      padding: 18px 0;
+
+      color: #8f8288;
+
+      font-size: 11px;
+
+    }
+
+
+    .footer-bottom .container {
+
+      display: flex;
+
+      justify-content: space-between;
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width: 950px) {
+
+      .nav-links {
+
+        gap: 12px;
+
+      }
+
+
+      .nav-btn {
+
+        display: none;
+
+      }
+
+
+      .project-hero {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .hero-image {
+
+        min-height: 500px;
+
+      }
+
+
+      .hero-content {
+
+        padding: 70px 30px;
+
+      }
+
+
+      .intro-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .vision-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .promise-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .facts {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+    }
+
+
+    @media(max-width: 680px) {
+
+      header,
+      .nav {
+
+        height: 74px;
+
+      }
+
+
+      .logo img {
+
+        width: 105px;
+
+        height: 60px;
+
+      }
+
+
+      .menu-btn {
+
+        display: block;
+
+        margin-left: auto;
+
+      }
+
+
+      .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 74px;
+
+        left: 15px;
+
+        right: 15px;
+
+        background: white;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        box-shadow:
+          0 20px 50px
+          rgba(0,0,0,.12);
+
+      }
+
+
+      .nav-links.show {
+
+        display: flex;
+
+      }
+
+
+      .project-hero {
+
+        padding-top: 74px;
+
+      }
+
+
+      .hero-content {
+
+        padding: 70px 20px;
+
+      }
+
+
+      .hero-content h1 {
+
+        font-size: 52px;
+
+      }
+
+
+      .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+      }
+
+
+      .hero-image {
+
+        min-height: 420px;
+
+      }
+
+
+      .intro-grid {
+
+        gap: 35px;
+
+      }
+
+
+      .vision-grid,
+      .approach-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .facts {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .cta-inner {
+
+        display: block;
+
+      }
+
+
+      .cta .btn {
+
+        margin-top: 25px;
+
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .footer-bottom .container {
+
+        display: block;
+
+      }
+
+
+      .footer-bottom span {
+
+        display: block;
+
+        margin: 5px 0;
+
+      }
+
+    }
+
+    /* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+
+  <header>
+
+    <div class="container nav">
+
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township Logo"
+        >
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+
+      <nav
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="index.html">
+          Home
+        </a>
+
+
+        <a
+          href="about.html"
+          class="active"
+        >
+          About Us
+        </a>
+
+
+        <a href="project.html">
+          Project
+        </a>
+
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+
+        <a href="location.html">
+          Location
+        </a>
+
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+
+     <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =====================================================
+         ABOUT HERO
+         SAME LAYOUT AS PROJECT PAGE
+    ===================================================== -->
+
+    <section class="project-hero">
+
+
+      <div class="hero-content">
+
+        <div class="hero-inner">
+
+
+          <div class="hero-eyebrow">
+            ABOUT TRUST CITY • BAHADURGARH
+          </div>
+
+
+          <h1>
+
+            More Than a<br>
+
+            <em>Plot.</em>
+
+          </h1>
+
+
+          <p>
+
+            Discover the vision behind Trust City Township —
+            a thoughtfully planned plotted development created
+            around better planning, a connected location and
+            the freedom to build a home your way.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#story"
+              class="btn"
+            >
+              Discover Our Story
+            </a>
+
+
+            <a
+              href="project.html"
+              class="btn btn-outline"
+            >
+              Explore Project
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-image">
+
+        <img
+          src="assets/trust-city-layout.jpg"
+          alt="Trust City Township Master Layout"
+        >
+
+
+        <div class="hero-info">
+
+          <strong>
+            TRUST CITY TOWNSHIP
+          </strong>
+
+
+          <span>
+            Sector 36 &amp; 41 • Bahadurgarh, Haryana
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OUR STORY
+    ===================================================== -->
+
+    <section
+      class="section"
+      id="story"
+    >
+
+      <div class="container intro-grid">
+
+
+        <div class="intro-left">
+
+          <span class="section-label">
+            OUR STORY
+          </span>
+
+
+          <h2>
+
+            Creating a Place
+            with <em>Purpose.</em>
+
+          </h2>
+
+
+          <div class="intro-image">
+
+            <img
+              src="assets/aboutusheader.jpg"
+              alt="Trust City Township"
+            >
+
+          </div>
+
+        </div>
+
+
+
+        <div class="intro-right">
+
+          <p>
+
+            Trust City Township is a planned plotted
+            development by GRSD Realtors LLP, located
+            in Sector 36 &amp; 41, Bahadurgarh, Haryana.
+
+          </p>
+
+
+          <p>
+
+            The idea behind Trust City is simple:
+            create a well-organised environment where
+            people can choose a plot and plan a home
+            around their own lifestyle and requirements.
+
+          </p>
+
+
+          <p>
+
+            The township brings together residential
+            plots, commercial spaces, roads and supporting
+            areas within a structured development layout.
+
+          </p>
+
+
+          <p>
+
+            We believe that buying land is not only about
+            ownership. It is about choosing the surroundings
+            where a family's future can take shape.
+
+          </p>
+
+
+          <p>
+
+            That is why the project places importance on
+            planning, accessibility, project information
+            and the overall development environment.
+
+          </p>
+
+
+          <a
+            href="project.html"
+            class="btn"
+          >
+            View Project Details →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OUR VISION
+    ===================================================== -->
+
+    <section class="section vision">
+
+
+      <div class="container">
+
+
+        <div class="section-heading center">
+
+          <span class="section-label">
+            OUR VISION
+          </span>
+
+
+          <h2>
+
+            A Better Foundation
+            for <em>Better Living.</em>
+
+          </h2>
+
+
+          <p>
+
+            Our vision is to create a township environment
+            where thoughtful planning and individual choice
+            come together.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="vision-grid">
+
+
+          <article class="vision-card">
+
+            <div class="vision-number">
+              01
+            </div>
+
+
+            <h3>
+              Thoughtful Planning
+            </h3>
+
+
+            <p>
+
+              A structured layout brings residential
+              plots, roads, commercial areas and other
+              designated spaces together in an organised
+              development.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="vision-card">
+
+            <div class="vision-number">
+              02
+            </div>
+
+
+            <h3>
+              Freedom to Build
+            </h3>
+
+
+            <p>
+
+              A plotted development gives families the
+              flexibility to create a home according to
+              their own needs, preferences and lifestyle.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="vision-card">
+
+            <div class="vision-number">
+              03
+            </div>
+
+
+            <h3>
+              A Growing Location
+            </h3>
+
+
+            <p>
+
+              Bahadurgarh's position within the Delhi NCR
+              region makes location and connectivity an
+              important part of the project's vision.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OUR APPROACH
+    ===================================================== -->
+
+    <section class="section">
+
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            OUR APPROACH
+          </span>
+
+
+          <h2>
+
+            What We Believe
+            <em>Matters.</em>
+
+          </h2>
+
+
+          <p>
+
+            A good property decision starts with
+            understanding the project, the location
+            and the possibilities it offers.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="approach-grid">
+
+
+          <article class="approach-card">
+
+            <div class="approach-number">
+              01
+            </div>
+
+
+            <h3>
+              Location Matters
+            </h3>
+
+
+            <p>
+
+              The surroundings of a property play an
+              important role in long-term decision making.
+              Trust City is positioned in Bahadurgarh,
+              Haryana.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="approach-card">
+
+            <div class="approach-number">
+              02
+            </div>
+
+
+            <h3>
+              Planning Matters
+            </h3>
+
+
+            <p>
+
+              A planned layout helps create a more
+              organised environment by clearly defining
+              residential, commercial and road areas.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="approach-card">
+
+            <div class="approach-number">
+              03
+            </div>
+
+
+            <h3>
+              Information Matters
+            </h3>
+
+
+            <p>
+
+              Buyers deserve clear information about
+              the project so they can understand the
+              opportunity before making a decision.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="approach-card">
+
+            <div class="approach-number">
+              04
+            </div>
+
+
+            <h3>
+              People Matter
+            </h3>
+
+
+            <p>
+
+              Every buyer has different expectations.
+              Our approach is to help visitors understand
+              the project according to their individual
+              requirements.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TRUST CITY PROMISE
+    ===================================================== -->
+
+    <section class="section promise">
+
+
+      <div class="container promise-grid">
+
+
+        <div>
+
+          <span
+            class="section-label"
+            style="color:var(--pink);"
+          >
+            THE TRUST CITY PROMISE
+          </span>
+
+
+          <h2>
+
+            A Place to Start
+            Your <em>Next Chapter.</em>
+
+          </h2>
+
+
+          <p class="promise-intro">
+
+            Buying a plot is a long-term decision.
+            Our aim is to provide a thoughtfully planned
+            development and useful project information
+            so that prospective buyers can make informed
+            decisions.
+
+          </p>
+
+
+          <a
+            href="contact.html"
+            class="btn"
+          >
+            Talk To Our Team →
+          </a>
+
+        </div>
+
+
+
+        <div class="promise-list">
+
+
+          <div class="promise-item">
+
+            <b>✓</b>
+
+            <div>
+
+              <h3>
+                Planned Township Environment
+              </h3>
+
+              <p>
+
+                Residential and supporting spaces
+                arranged within a defined development
+                layout.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="promise-item">
+
+            <b>✓</b>
+
+            <div>
+
+              <h3>
+                Project Transparency
+              </h3>
+
+              <p>
+
+                Important project details presented
+                clearly for prospective buyers.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="promise-item">
+
+            <b>✓</b>
+
+            <div>
+
+              <h3>
+                Buyer Assistance
+              </h3>
+
+              <p>
+
+                Assistance for enquiries, project
+                information and site visits.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="promise-item">
+
+            <b>✓</b>
+
+            <div>
+
+              <h3>
+                Future-Oriented Planning
+              </h3>
+
+              <p>
+
+                A development designed with the
+                evolving Bahadurgarh region in mind.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT AT A GLANCE
+    ===================================================== -->
+
+    <section class="section">
+
+
+      <div class="container">
+
+
+        <div class="section-heading center">
+
+          <span class="section-label">
+            TRUST CITY AT A GLANCE
+          </span>
+
+
+          <h2>
+
+            The Facts Behind
+            <em>Trust City.</em>
+
+          </h2>
+
+        </div>
+
+
+
+        <div class="facts">
+
+
+          <div class="fact">
+
+            <strong>
+              Sector 36 &amp; 41
+            </strong>
+
+            <span>
+              Location
+            </span>
+
+          </div>
+
+
+
+          <div class="fact">
+
+            <strong>
+              Bahadurgarh
+            </strong>
+
+            <span>
+              Haryana
+            </span>
+
+          </div>
+
+
+
+          <div class="fact">
+
+            <strong>
+              Residential
+            </strong>
+
+            <span>
+              Plotted Township
+            </span>
+
+          </div>
+
+
+
+          <div class="fact">
+
+            <strong>
+              GRSD Realtors LLP
+            </strong>
+
+            <span>
+              Promoter
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section class="section cta">
+
+
+      <div class="container cta-inner">
+
+
+        <div>
+
+          <span class="section-label">
+            TAKE THE NEXT STEP
+          </span>
+
+
+          <h2>
+
+            See the Place Behind
+            <br>
+
+            <em>The Vision.</em>
+
+          </h2>
+
+
+          <p>
+
+            Explore the Trust City Township layout
+            or schedule a visit to understand the
+            project in greater detail.
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="project.html"
+            class="btn"
+          >
+            Explore Project →
+          </a>
+
+
+          <a
+            href="contact.html"
+            class="btn"
+            style="
+              margin-left:8px;
+              background:#351321;
+            "
+          >
+            Book a Site Visit
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+
+    <div class="container footer-grid">
+
+
+      <div>
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township"
+          class="footer-logo"
+        >
+
+
+        <p>
+          Your Dream Home Awaits at Bahadurgarh.
+        </p>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          Explore
+        </h4>
+
+
+        <a href="about.html">
+          About Us
+        </a>
+
+
+        <a href="project.html">
+          Project
+        </a>
+
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+
+        <a href="location.html">
+          Location
+        </a>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          Connect
+        </h4>
+
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+
+        <a href="contact.html">
+          Book a Site Visit
+        </a>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          Contact
+        </h4>
+
+
+        <a href="tel:18002023650">
+          1800-202-3650
+        </a>
+
+
+        <a href="mailto:corporate@trustcitytownship.com">
+          corporate@trustcitytownship.com
+        </a>
+
+
+        <p>
+          Sector 36 &amp; 41,
+          Bahadurgarh, Haryana
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+
+      <div class="container">
+
+        <span>
+          © 2026 Trust City Township.
+          All Rights Reserved.
+        </span>
+
+
+        <span>
+          RERA No. HRERA-PKL-JJR-562-2024
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       MOBILE MENU
+  ===================================================== -->
+
+  <script>
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener(
+      "click",
+      function () {
+
+        navLinks.classList.toggle("show");
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            navLinks.classList.remove("show");
+
+          }
+        );
+
+      });
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog | Trust City Township</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --wine: #861548;
+      --dark-wine: #351321;
+      --pink: #e8a4bb;
+      --light-pink: #f4e3e9;
+      --cream: #faf7f4;
+      --white: #ffffff;
+      --black: #211d20;
+      --gray: #777176;
+      --border: #e8dfe3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--black);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--wine);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 23px;
+      background: var(--wine);
+      color: white;
+      border: none;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 84px;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo img {
+      width: 125px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: #494449;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--wine);
+    }
+
+    .nav-btn {
+      background: var(--wine);
+      color: white;
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 28px;
+      color: var(--wine);
+      cursor: pointer;
+    }
+
+
+    /* =========================================
+       BLOG HERO
+    ========================================= */
+
+    .blog-hero {
+      min-height: 720px;
+      padding-top: 84px;
+      display: grid;
+      grid-template-columns: 44% 56%;
+      background: var(--dark-wine);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      padding:
+        80px
+        50px
+        80px
+        max(20px, calc((100vw - 1180px) / 2));
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 580px;
+    }
+
+    .hero-eyebrow {
+      color: var(--pink);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(55px, 6vw, 92px);
+      margin: 25px 0;
+      color: white;
+    }
+
+    .hero-content h1 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .hero-content p {
+      color: rgba(255,255,255,.72);
+      max-width: 510px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 636px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-info {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      background: white;
+      padding: 20px 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    }
+
+    .hero-info strong {
+      display: block;
+      color: var(--wine);
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .hero-info span {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+
+    /* =========================================
+       BLOG INTRO
+    ========================================= */
+
+    .blog-intro {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .blog-intro h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .blog-intro h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .blog-intro p {
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+
+    /* =========================================
+       BLOG SECTION
+    ========================================= */
+
+    .blog-section {
+      background: var(--cream);
+    }
+
+    .blog-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .blog-heading h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .blog-heading h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .blog-heading p {
+      color: var(--gray);
+      max-width: 450px;
+    }
+
+
+    /* =========================================
+       BLOG GRID
+    ========================================= */
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: white;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 50px rgba(50,20,40,.09);
+    }
+
+    .blog-image {
+      height: 245px;
+      overflow: hidden;
+    }
+
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .blog-card:hover .blog-image img {
+      transform: scale(1.05);
+    }
+
+    .blog-content {
+      padding: 28px;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--wine);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .blog-meta span:last-child {
+      color: #999;
+    }
+
+    .blog-content h3 {
+      font-size: 27px;
+      margin: 14px 0;
+    }
+
+    .blog-content p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .read-more {
+      color: var(--wine);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       FEATURED ARTICLE
+    ========================================= */
+
+    .featured-article {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 500px;
+      background: var(--dark-wine);
+      color: white;
+    }
+
+    .featured-article-image {
+      overflow: hidden;
+    }
+
+    .featured-article-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-article-content {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-article-content .section-label {
+      color: var(--pink);
+    }
+
+    .featured-article-content h2 {
+      font-size: clamp(38px, 4vw, 60px);
+      margin: 18px 0;
+    }
+
+    .featured-article-content p {
+      color: rgba(255,255,255,.68);
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .featured-meta {
+      color: var(--pink);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 5px;
+    }
+
+
+    /* =========================================
+       CATEGORIES
+    ========================================= */
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 45px;
+    }
+
+    .category {
+      padding: 15px 22px;
+      border: 1px solid var(--border);
+      color: #555;
+      background: white;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: .2s;
+    }
+
+    .category:hover {
+      background: var(--wine);
+      border-color: var(--wine);
+      color: white;
+    }
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .cta {
+      background: var(--light-pink);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .cta h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .cta p {
+      color: var(--gray);
+      margin-top: 15px;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: #24151d;
+      color: white;
+      padding-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      width: 160px;
+      background: white;
+      padding: 5px;
+    }
+
+    footer h4 {
+      color: var(--pink);
+      margin-bottom: 18px;
+    }
+
+    footer a,
+    footer p {
+      display: block;
+      color: #bcb1b6;
+      font-size: 13px;
+      margin: 9px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 18px 0;
+      color: #8f8288;
+      font-size: 11px;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media(max-width: 950px) {
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .blog-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 500px;
+      }
+
+      .hero-content {
+        padding: 70px 30px;
+      }
+
+      .blog-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .featured-article {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-article-image {
+        min-height: 400px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width: 680px) {
+
+      header,
+      .nav {
+        height: 74px;
+      }
+
+      .logo img {
+        width: 105px;
+        height: 60px;
+      }
+
+      .menu-btn {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 15px;
+        right: 15px;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .blog-hero {
+        padding-top: 74px;
+      }
+
+      .hero-content {
+        padding: 65px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 52px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+
+      .blog-heading {
+        display: block;
+      }
+
+      .blog-heading p {
+        margin-top: 15px;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-article-content {
+        padding: 40px 25px;
+      }
+
+      .featured-article-image {
+        min-height: 320px;
+      }
+
+      .cta-inner {
+        display: block;
+      }
+
+      .cta .btn {
+        margin-top: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom .container {
+        display: block;
+      }
+
+      .footer-bottom span {
+        display: block;
+        margin: 5px 0;
+      }
+
+    }
+
+    /* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       HEADER
+  ========================================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township Logo"
+        >
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html" class="active">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+
+     <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =========================================
+         BLOG HERO
+    ========================================= -->
+
+    <section class="blog-hero">
+
+
+      <div class="hero-content">
+
+        <div class="hero-inner">
+
+
+          <div class="hero-eyebrow">
+            TRUST CITY • INSIGHTS
+          </div>
+
+
+          <h1>
+
+            Ideas for a
+            <br>
+
+            <em>Better Tomorrow.</em>
+
+          </h1>
+
+
+          <p>
+
+            Explore useful insights about plotted
+            development, buying property, choosing the
+            right location and planning your future home
+            in the Delhi NCR region.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#latest"
+              class="btn"
+            >
+              Read Our Blogs
+            </a>
+
+
+            <a
+              href="project.html"
+              class="btn btn-outline"
+            >
+              Explore Trust City
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-image">
+
+        <img
+          src="assets/blog-header.jpg"
+          alt="Trust City Township Blog"
+        >
+
+
+        <div class="hero-info">
+
+          <strong>
+            TRUST CITY TOWNSHIP
+          </strong>
+
+          <span>
+            Sector 36 &amp; 41 • Bahadurgarh, Haryana
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         INTRO
+    ========================================= -->
+
+    <section class="section">
+
+      <div class="container blog-intro">
+
+
+        <div>
+
+          <span class="section-label">
+            FROM THE TRUST CITY JOURNAL
+          </span>
+
+
+          <h2>
+
+            Knowledge Today.
+            <em>Confidence Tomorrow.</em>
+
+          </h2>
+
+        </div>
+
+
+
+        <div>
+
+          <p>
+
+            Buying a property is an important decision.
+            The right information can help you understand
+            the process, evaluate a location and make a
+            decision with greater confidence.
+
+          </p>
+
+
+          <p>
+
+            Our blog is created to make property-related
+            topics easier to understand — from plotted
+            developments and documentation to location
+            considerations and home planning.
+
+          </p>
+
+
+          <a
+            href="#latest"
+            class="btn"
+          >
+            Explore Articles →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FEATURED ARTICLE
+    ========================================= -->
+
+    <section class="section" style="padding-top:0;">
+
+      <div class="container">
+
+
+        <div class="featured-article">
+
+
+          <div class="featured-article-image">
+
+            <img
+              src="assets/trust-city-layout.jpg"
+              alt="Trust City Township Layout"
+            >
+
+          </div>
+
+
+
+          <div class="featured-article-content">
+
+            <div class="featured-meta">
+              FEATURED ARTICLE • PROPERTY GUIDE
+            </div>
+
+
+            <span class="section-label">
+              BUYER'S GUIDE
+            </span>
+
+
+            <h2>
+
+              What Should You
+              <em>Look For?</em>
+
+            </h2>
+
+
+            <p>
+
+              From location and layout to documentation
+              and future requirements, understanding the
+              fundamentals can help you evaluate a plotted
+              property more effectively.
+
+            </p>
+
+
+            <a
+              href="#latest"
+              class="btn"
+            >
+              Read Article →
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         LATEST ARTICLES
+    ========================================= -->
+
+    <section
+      class="section blog-section"
+      id="latest"
+    >
+
+      <div class="container">
+
+
+        <div class="blog-heading">
+
+
+          <div>
+
+            <span class="section-label">
+              LATEST ARTICLES
+            </span>
+
+
+            <h2>
+
+              Explore Our
+              <em>Insights.</em>
+
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            Practical information for homebuyers,
+            investors and anyone planning their next
+            property decision.
+
+          </p>
+
+
+        </div>
+
+
+
+        <div class="blog-grid">
+
+
+          <!-- BLOG 01 -->
+
+          <article class="blog-card">
+
+
+            <div class="blog-image">
+
+              <img
+                src="assets/location.jpg"
+                alt="Property location guide"
+              >
+
+            </div>
+
+
+            <div class="blog-content">
+
+              <div class="blog-meta">
+
+                <span>
+                  LOCATION
+                </span>
+
+                <span>
+                  5 MIN READ
+                </span>
+
+              </div>
+
+
+              <h3>
+                Why Location Matters When Buying a Property
+              </h3>
+
+
+              <p>
+
+                Understand why connectivity, surrounding
+                development and everyday accessibility
+                should be considered before buying property.
+
+              </p>
+
+
+              <a
+                href="#"
+                class="read-more"
+              >
+                Read Article →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLOG 02 -->
+
+          <article class="blog-card">
+
+
+            <div class="blog-image">
+
+              <img
+                src="assets/trust-city-layout.jpg"
+                alt="Plotted development guide"
+              >
+
+            </div>
+
+
+            <div class="blog-content">
+
+              <div class="blog-meta">
+
+                <span>
+                  PROPERTY GUIDE
+                </span>
+
+                <span>
+                  6 MIN READ
+                </span>
+
+              </div>
+
+
+              <h3>
+                Plotted Development vs Ready-Made Home
+              </h3>
+
+
+              <p>
+
+                Explore the difference between buying a
+                plot and purchasing a ready-built property,
+                including the flexibility each option offers.
+
+              </p>
+
+
+              <a
+                href="#"
+                class="read-more"
+              >
+                Read Article →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLOG 03 -->
+
+          <article class="blog-card">
+
+
+            <div class="blog-image">
+
+              <img
+                src="assets/aboutusheader.jpg"
+                alt="Home planning"
+              >
+
+            </div>
+
+
+            <div class="blog-content">
+
+              <div class="blog-meta">
+
+                <span>
+                  HOME PLANNING
+                </span>
+
+                <span>
+                  4 MIN READ
+                </span>
+
+              </div>
+
+
+              <h3>
+                Things to Consider Before Building Your Home
+              </h3>
+
+
+              <p>
+
+                Planning your future home starts well before
+                construction. Here are some important factors
+                to think about from the beginning.
+
+              </p>
+
+
+              <a
+                href="#"
+                class="read-more"
+              >
+                Read Article →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLOG 04 -->
+
+          <article class="blog-card">
+
+
+            <div class="blog-image">
+
+              <img
+                src="assets/location.jpg"
+                alt="Bahadurgarh property"
+              >
+
+            </div>
+
+
+            <div class="blog-content">
+
+              <div class="blog-meta">
+
+                <span>
+                  BAHADURGARH
+                </span>
+
+                <span>
+                  5 MIN READ
+                </span>
+
+              </div>
+
+
+              <h3>
+                Understanding the Growing Bahadurgarh Region
+              </h3>
+
+
+              <p>
+
+                A simple overview of the region, its urban
+                environment and why buyers consider
+                Bahadurgarh for future property plans.
+
+              </p>
+
+
+              <a
+                href="#"
+                class="read-more"
+              >
+                Read Article →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLOG 05 -->
+
+          <article class="blog-card">
+
+
+            <div class="blog-image">
+
+              <img
+                src="assets/trust-city-layout.jpg"
+                alt="Property documentation"
+              >
+
+            </div>
+
+
+            <div class="blog-content">
+
+              <div class="blog-meta">
+
+                <span>
+                  BUYER GUIDE
+                </span>
+
+                <span>
+                  7 MIN READ
+                </span>
+
+              </div>
+
+
+              <h3>
+                Property Documents Every Buyer Should Understand
+              </h3>
+
+
+              <p>
+
+                Before making a property decision, learn
+                about the key documents and information you
+                should ask the developer or seller about.
+
+              </p>
+
+
+              <a
+                href="#"
+                class="read-more"
+              >
+                Read Article →
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- BLOG 06 -->
+
+          <article class="blog-card">
+
+
+            <div class="blog-image">
+
+              <img
+                src="assets/aboutusheader.jpg"
+                alt="Future home planning"
+              >
+
+            </div>
+
+
+            <div class="blog-content">
+
+              <div class="blog-meta">
+
+                <span>
+                  INVESTMENT
+                </span>
+
+                <span>
+                  5 MIN READ
+                </span>
+
+              </div>
+
+
+              <h3>
+                How to Think About Your Property for the Future
+              </h3>
+
+
+              <p>
+
+                Property decisions are long-term decisions.
+                Consider how your needs may change before
+                choosing the right place to build or invest.
+
+              </p>
+
+
+              <a
+                href="#"
+                class="read-more"
+              >
+                Read Article →
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CATEGORIES
+    ========================================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+
+        <div>
+
+          <span class="section-label">
+            BROWSE BY TOPIC
+          </span>
+
+
+          <h2 style="font-size:clamp(42px,5vw,68px);margin-top:15px;">
+
+            Find What
+            <em style="color:var(--wine);font-style:normal;">
+              Matters.
+            </em>
+
+          </h2>
+
+        </div>
+
+
+        <div class="categories">
+
+          <a href="#" class="category">
+            Property Buying
+          </a>
+
+          <a href="#" class="category">
+            Real Estate
+          </a>
+
+          <a href="#" class="category">
+            Plotted Development
+          </a>
+
+          <a href="#" class="category">
+            Bahadurgarh
+          </a>
+
+          <a href="#" class="category">
+            Home Planning
+          </a>
+
+          <a href="#" class="category">
+            Investment
+          </a>
+
+          <a href="#" class="category">
+            Buyer Guide
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="section cta">
+
+      <div class="container cta-inner">
+
+
+        <div>
+
+          <span class="section-label">
+            READY TO TAKE THE NEXT STEP?
+          </span>
+
+
+          <h2>
+
+            Read About It.
+            <br>
+
+            Then <em>See It Yourself.</em>
+
+          </h2>
+
+
+          <p>
+
+            Explore Trust City Township and discover
+            a planned plotted development in Bahadurgarh.
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="contact.html"
+            class="btn"
+          >
+            Book A Site Visit →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+
+      <div>
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township"
+          class="footer-logo"
+        >
+
+        <p>
+          Your Dream Home Awaits at Bahadurgarh.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Explore
+        </h4>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Connect
+        </h4>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="contact.html">
+          Book a Site Visit
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Contact
+        </h4>
+
+        <a href="tel:18002023650">
+          1800-202-3650
+        </a>
+
+        <a href="mailto:corporate@trustcitytownship.com">
+          corporate@trustcitytownship.com
+        </a>
+
+        <p>
+          Sector 36 &amp; 41,
+          Bahadurgarh, Haryana
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <span>
+          © 2026 Trust City Township.
+          All Rights Reserved.
+        </span>
+
+        <span>
+          RERA No. HRERA-PKL-JJR-562-2024
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       MOBILE MENU
+  ========================================= -->
+
+  <script>
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+      navLinks.classList.toggle("show");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navLinks.classList.remove("show");
+
+        });
+
+      });
+
+  </script>
+
+
+</body>
+</html>

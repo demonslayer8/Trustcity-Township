@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amenities | Trust City Township</title>
+
+    <meta name="description"
+        content="Explore the amenities and lifestyle features planned for Trust City Township in Bahadurgarh.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================================
+           ROOT
+        ========================================= */
+
+        :root {
+            --wine: #861548;
+            --dark: #351321;
+            --pink: #e8a4bb;
+            --light-pink: #f3e1e8;
+            --cream: #faf7f4;
+            --white: #ffffff;
+            --black: #211d20;
+            --gray: #756e73;
+            --border: #e8dfe3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--black);
+            background: white;
+            line-height: 1.6;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Playfair Display", serif;
+            line-height: 1.08;
+        }
+
+        h2 {
+            font-size: clamp(42px, 5vw, 68px);
+        }
+
+        h2 em,
+        h1 em {
+            color: var(--wine);
+            font-style: normal;
+        }
+
+        .eyebrow {
+            color: var(--wine);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .cream {
+            background: var(--cream);
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            height: 84px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav {
+            height: 84px;
+
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo img {
+            width: 125px;
+            height: 68px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            margin-left: auto;
+
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #494449;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--wine);
+        }
+
+        .nav-btn {
+            background: var(--wine);
+            color: white;
+
+            padding: 14px 20px;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: 0;
+            background: none;
+
+            font-size: 28px;
+            color: var(--wine);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .amenity-hero {
+            min-height: 700px;
+
+            padding-top: 84px;
+
+            display: grid;
+            grid-template-columns: 45% 55%;
+
+            background: var(--dark);
+        }
+
+        .hero-content {
+            color: white;
+
+            display: flex;
+            align-items: center;
+
+            padding:
+                80px
+                50px
+                80px
+                max(20px, calc((100vw - 1180px) / 2));
+        }
+
+        .hero-inner {
+            max-width: 560px;
+        }
+
+        .hero-eyebrow {
+            color: var(--pink);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: .18em;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(55px, 6vw, 90px);
+
+            margin: 25px 0;
+        }
+
+        .hero-content h1 em {
+            color: var(--pink);
+        }
+
+        .hero-content p {
+            max-width: 500px;
+
+            color: rgba(255,255,255,.7);
+
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .hero-image {
+            position: relative;
+            min-height: 616px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d8bdc8,
+                    #8c536e
+                );
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        /*
+            If you don't have a separate amenity image,
+            this background creates a premium visual.
+        */
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    rgba(255,255,255,.35),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 75% 70%,
+                    rgba(255,255,255,.15),
+                    transparent 30%
+                );
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            gap: 80px;
+        }
+
+        .intro h2 {
+            margin-top: 15px;
+        }
+
+        .intro-text p {
+            color: var(--gray);
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+        }
+
+        .intro-note {
+            margin-top: 30px;
+
+            border-left: 3px solid var(--wine);
+
+            padding: 18px 20px;
+
+            background: var(--cream);
+
+            color: #615960;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           AMENITIES GRID
+        ========================================= */
+
+        .amenities-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 55px;
+        }
+
+        .amenities-heading h2 {
+            margin-top: 15px;
+        }
+
+        .amenities-heading p {
+            max-width: 410px;
+
+            color: var(--gray);
+
+            line-height: 1.8;
+        }
+
+        .amenity-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(12, 1fr);
+
+            gap: 18px;
+        }
+
+        .amenity-card {
+            position: relative;
+
+            min-height: 280px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #8d4162,
+                    #351321
+                );
+
+            transition: .3s;
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .amenity-card::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(232,164,187,.5),
+                    transparent 30%
+                );
+        }
+
+        .amenity-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .amenity-card:nth-child(1),
+        .amenity-card:nth-child(4) {
+            grid-column: span 7;
+        }
+
+        .amenity-card:nth-child(2),
+        .amenity-card:nth-child(3) {
+            grid-column: span 5;
+        }
+
+        .amenity-card:nth-child(5),
+        .amenity-card:nth-child(6),
+        .amenity-card:nth-child(7) {
+            grid-column: span 4;
+        }
+
+        .amenity-number {
+            position: absolute;
+
+            top: 22px;
+            right: 25px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 48px;
+
+            color: rgba(255,255,255,.22);
+        }
+
+        .amenity-icon {
+            font-size: 38px;
+
+            margin-bottom: auto;
+
+            color: var(--pink);
+        }
+
+        .amenity-card h3 {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .amenity-card p {
+            color: rgba(255,255,255,.7);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            max-width: 430px;
+        }
+
+
+        /* =========================================
+           LIFESTYLE SECTION
+        ========================================= */
+
+        .lifestyle {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 0;
+        }
+
+        .lifestyle-image {
+            min-height: 620px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9cad7,
+                    #8b4a67
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+        }
+
+        .lifestyle-image .big-text {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(70px, 9vw, 140px);
+
+            line-height: .85;
+
+            text-align: center;
+
+            opacity: .9;
+        }
+
+        .lifestyle-content {
+            padding: 80px;
+
+            background: var(--dark);
+
+            color: white;
+        }
+
+        .lifestyle-content .eyebrow {
+            color: var(--pink);
+        }
+
+        .lifestyle-content h2 {
+            margin-top: 18px;
+
+            color: white;
+        }
+
+        .lifestyle-content h2 em {
+            color: var(--pink);
+        }
+
+        .lifestyle-content > p {
+            color: rgba(255,255,255,.68);
+
+            line-height: 1.9;
+
+            margin-top: 25px;
+        }
+
+        .lifestyle-list {
+            margin-top: 35px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 0 25px;
+        }
+
+        .lifestyle-list div {
+            padding: 15px 0;
+
+            border-top: 1px solid rgba(255,255,255,.12);
+
+            font-size: 13px;
+        }
+
+        .lifestyle-list div::before {
+            content: "✓";
+
+            color: var(--pink);
+
+            font-weight: 800;
+
+            margin-right: 10px;
+        }
+
+
+        /* =========================================
+           AMENITY CATEGORIES
+        ========================================= */
+
+        .category-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-top: 50px;
+        }
+
+        .category {
+            padding: 35px;
+
+            border: 1px solid var(--border);
+
+            background: white;
+        }
+
+        .category-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--light-pink);
+
+            color: var(--wine);
+
+            font-size: 24px;
+
+            margin-bottom: 25px;
+        }
+
+        .category h3 {
+            font-size: 27px;
+
+            margin-bottom: 12px;
+        }
+
+        .category p {
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           MASTER PLAN CTA
+        ========================================= */
+
+        .plan-cta {
+            background: var(--cream);
+        }
+
+        .plan-cta-inner {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .plan-visual {
+            min-height: 420px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d9bdc9,
+                    #8b526d
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+
+            color: white;
+        }
+
+        .plan-visual span {
+            font-family: "Playfair Display", serif;
+
+            font-size: 70px;
+
+            text-align: center;
+        }
+
+        .plan-text h2 {
+            margin-top: 15px;
+        }
+
+        .plan-text p {
+            color: var(--gray);
+
+            line-height: 1.9;
+
+            margin: 20px 0 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            padding: 15px 23px;
+
+            background: var(--wine);
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .07em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           NOTE
+        ========================================= */
+
+        .verification {
+            margin-top: 30px;
+
+            padding: 18px 20px;
+
+            background: white;
+
+            border-left: 4px solid var(--wine);
+
+            font-size: 12px;
+
+            color: var(--gray);
+        }
+
+
+        /* =========================================
+           FINAL CTA
+        ========================================= */
+
+        .final-cta {
+            background: var(--light-pink);
+        }
+
+        .final-cta-inner {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 40px;
+        }
+
+        .final-cta h2 {
+            margin-top: 15px;
+        }
+
+        .final-cta p {
+            color: var(--gray);
+
+            margin-top: 15px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #24151d;
+
+            color: white;
+
+            padding-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                1.5fr;
+
+            gap: 40px;
+
+            padding-bottom: 50px;
+        }
+
+        .footer-logo {
+            width: 160px;
+
+            background: white;
+
+            padding: 5px;
+        }
+
+        footer h4 {
+            color: var(--pink);
+
+            margin-bottom: 18px;
+        }
+
+        footer a,
+        footer p {
+            display: block;
+
+            color: #bcb1b6;
+
+            font-size: 13px;
+
+            margin: 9px 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.1);
+
+            padding: 18px 0;
+
+            color: #8f8288;
+
+            font-size: 11px;
+        }
+
+        .footer-bottom .container {
+            display: flex;
+
+            justify-content: space-between;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media(max-width: 950px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .amenity-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                min-height: 480px;
+            }
+
+            .hero-content {
+                padding: 70px 30px;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+            }
+
+            .amenity-card:nth-child(n) {
+                grid-column: span 6;
+            }
+
+            .lifestyle {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .plan-cta-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media(max-width: 680px) {
+
+            header,
+            .nav {
+                height: 74px;
+            }
+
+            .logo img {
+                width: 105px;
+                height: 60px;
+            }
+
+            .menu-btn {
+                display: block;
+
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 74px;
+                left: 15px;
+                right: 15px;
+
+                background: white;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                box-shadow: 0 20px 50px rgba(0,0,0,.12);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .amenity-hero {
+                padding-top: 74px;
+            }
+
+            .hero-content {
+                padding: 65px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 52px;
+            }
+
+            .amenity-card:nth-child(n) {
+                grid-column: span 12;
+            }
+
+            .amenities-heading {
+                display: block;
+            }
+
+            .amenities-heading p {
+                margin-top: 20px;
+            }
+
+            .lifestyle-content {
+                padding: 55px 25px;
+            }
+
+            .lifestyle-list {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-cta-inner {
+                gap: 35px;
+            }
+
+            .plan-visual {
+                min-height: 300px;
+            }
+
+            .final-cta-inner {
+                display: block;
+            }
+
+            .final-cta .btn {
+                margin-top: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom .container {
+                display: block;
+            }
+
+            .footer-bottom span {
+                display: block;
+                margin: 5px 0;
+            }
+
+        }
+
+        /* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="assets/trust-city-logo.jpg"
+                alt="Trust City Township"
+            >
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <nav
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="project.html">
+                Project
+            </a>
+
+            <a
+                href="amenities.html"
+                class="active"
+            >
+                Amenities
+            </a>
+
+            <a href="location.html">
+                Location
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+       <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="amenity-hero">
+
+
+    <div class="hero-content">
+
+        <div class="hero-inner">
+
+            <div class="hero-eyebrow">
+                AMENITIES • TRUST CITY
+            </div>
+
+
+            <h1>
+
+                More Than a Plot.<br>
+
+                <em>A Better Way to Live.</em>
+
+            </h1>
+
+
+            <p>
+
+                A thoughtfully planned township is about more than
+                the plot you own. It is about the roads you use,
+                the spaces you share and the environment around you.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <!--
+            Optional:
+            Replace this section with your actual
+            township/amenities photograph.
+
+            Example:
+
+            <img src="assets/amenities-main.jpg"
+                 alt="Trust City Township Amenities">
+        -->
+
+        <div class="hero-pattern"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="section">
+
+    <div class="container intro">
+
+
+        <div>
+
+            <div class="eyebrow">
+                THE TRUST CITY EXPERIENCE
+            </div>
+
+
+            <h2>
+
+                Designed Around
+                <em>Everyday Life.</em>
+
+            </h2>
+
+        </div>
+
+
+        <div class="intro-text">
+
+            <p>
+
+                Trust City Township brings together planned
+                residential areas, internal roads, commercial
+                spaces and community-oriented areas within a
+                structured township environment.
+
+            </p>
+
+
+            <p>
+
+                The idea is simple: create a development where
+                essential spaces are planned from the beginning,
+                giving residents a more organised environment
+                for everyday living.
+
+            </p>
+
+
+            <div class="intro-note">
+
+                <strong>
+                    Note:
+                </strong>
+
+                Amenities and facilities should be published
+                only according to the latest approved project
+                documents and actual development status.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     AMENITIES
+========================================= -->
+
+<section class="section cream">
+
+    <div class="container">
+
+
+        <div class="amenities-heading">
+
+
+            <div>
+
+                <div class="eyebrow">
+                    AMENITIES & FEATURES
+                </div>
+
+
+                <h2>
+
+                    Spaces That Make
+                    <em>Life Better.</em>
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Explore the key categories that define the
+                planned township environment.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="amenity-grid">
+
+
+            <!-- 01 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    01
+                </div>
+
+                <div class="amenity-icon">
+                    🛣
+                </div>
+
+                <h3>
+                    Planned Roads
+                </h3>
+
+                <p>
+                    An organised internal road network connecting
+                    different parts of the township.
+                </p>
+
+            </article>
+
+
+
+            <!-- 02 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    02
+                </div>
+
+                <div class="amenity-icon">
+                    🌳
+                </div>
+
+                <h3>
+                    Green Spaces
+                </h3>
+
+                <p>
+                    Open and landscaped areas can bring a more
+                    pleasant environment to everyday life.
+                </p>
+
+            </article>
+
+
+
+            <!-- 03 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    03
+                </div>
+
+                <div class="amenity-icon">
+                    🏘
+                </div>
+
+                <h3>
+                    Residential Zones
+                </h3>
+
+                <p>
+                    Planned residential blocks arranged around
+                    the township road network.
+                </p>
+
+            </article>
+
+
+
+            <!-- 04 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    04
+                </div>
+
+                <div class="amenity-icon">
+                    🏪
+                </div>
+
+                <h3>
+                    Commercial Spaces
+                </h3>
+
+                <p>
+                    Designated commercial areas planned within
+                    the development for supporting activities.
+                </p>
+
+            </article>
+
+
+
+            <!-- 05 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    05
+                </div>
+
+                <div class="amenity-icon">
+                    🏡
+                </div>
+
+                <h3>
+                    Community Area
+                </h3>
+
+                <p>
+                    Community-oriented space identified within
+                    the project layout.
+                </p>
+
+            </article>
+
+
+
+            <!-- 06 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    06
+                </div>
+
+                <div class="amenity-icon">
+                    💧
+                </div>
+
+                <h3>
+                    Essential Utilities
+                </h3>
+
+                <p>
+                    Supporting infrastructure planned as part
+                    of the township development.
+                </p>
+
+            </article>
+
+
+
+            <!-- 07 -->
+
+            <article class="amenity-card">
+
+                <div class="amenity-number">
+                    07
+                </div>
+
+                <div class="amenity-icon">
+                    🚶
+                </div>
+
+                <h3>
+                    Connected Layout
+                </h3>
+
+                <p>
+                    Internal planning designed to connect
+                    residential and supporting areas.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     LIFESTYLE
+========================================= -->
+
+<section>
+
+    <div class="lifestyle">
+
+
+        <div class="lifestyle-image">
+
+            <div class="big-text">
+
+                LIVE<br>
+                WELL
+
+            </div>
+
+        </div>
+
+
+        <div class="lifestyle-content">
+
+            <div class="eyebrow">
+                THE LIFESTYLE
+            </div>
+
+
+            <h2>
+
+                Everything Starts
+                <em>With Planning.</em>
+
+            </h2>
+
+
+            <p>
+
+                Good township planning creates a better relationship
+                between homes, roads, open spaces, commercial areas
+                and community facilities.
+
+            </p>
+
+
+            <div class="lifestyle-list">
+
+                <div>
+                    Organised internal movement
+                </div>
+
+                <div>
+                    Residential planning
+                </div>
+
+                <div>
+                    Supporting commercial spaces
+                </div>
+
+                <div>
+                    Community-oriented areas
+                </div>
+
+                <div>
+                    Open & utility areas
+                </div>
+
+                <div>
+                    Planned township structure
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CATEGORIES
+========================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+            AMENITY CATEGORIES
+        </div>
+
+
+        <h2 style="margin-top:15px;">
+
+            Built Around
+            <em>What Matters.</em>
+
+        </h2>
+
+
+        <div class="category-grid">
+
+
+            <article class="category">
+
+                <div class="category-icon">
+                    🛣
+                </div>
+
+                <h3>
+                    Connectivity
+                </h3>
+
+                <p>
+                    Internal roads and planned access routes
+                    form the backbone of the township.
+                </p>
+
+            </article>
+
+
+            <article class="category">
+
+                <div class="category-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Open Environment
+                </h3>
+
+                <p>
+                    Open and green areas contribute to the
+                    visual and environmental character of the
+                    development.
+                </p>
+
+            </article>
+
+
+            <article class="category">
+
+                <div class="category-icon">
+                    🏬
+                </div>
+
+                <h3>
+                    Convenience
+                </h3>
+
+                <p>
+                    Planned commercial areas can support
+                    everyday convenience within the township.
+                </p>
+
+            </article>
+
+
+            <article class="category">
+
+                <div class="category-icon">
+                    👨‍👩‍👧
+                </div>
+
+                <h3>
+                    Community
+                </h3>
+
+                <p>
+                    Community-oriented spaces create opportunities
+                    for residents to connect and interact.
+                </p>
+
+            </article>
+
+
+            <article class="category">
+
+                <div class="category-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Infrastructure
+                </h3>
+
+                <p>
+                    Essential supporting infrastructure forms
+                    an important part of township planning.
+                </p>
+
+            </article>
+
+
+            <article class="category">
+
+                <div class="category-icon">
+                    🏠
+                </div>
+
+                <h3>
+                    Residential Living
+                </h3>
+
+                <p>
+                    Residential plots are arranged within a
+                    structured development environment.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     MASTER PLAN CTA
+========================================= -->
+
+<section class="section plan-cta">
+
+    <div class="container plan-cta-inner">
+
+
+        <div class="plan-visual">
+
+            <span>
+
+                EXPLORE<br>
+                THE PLAN
+
+            </span>
+
+        </div>
+
+
+        <div class="plan-text">
+
+            <div class="eyebrow">
+                SEE THE COMPLETE LAYOUT
+            </div>
+
+
+            <h2>
+
+                Amenities Begin
+                With <em>Planning.</em>
+
+            </h2>
+
+
+            <p>
+
+                The master plan gives you a clearer picture of
+                how residential areas, roads, commercial spaces
+                and community areas are positioned.
+
+            </p>
+
+
+            <a
+                href="project.html#master-plan"
+                class="btn"
+            >
+                View Master Plan →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     VERIFICATION
+========================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+            IMPORTANT INFORMATION
+        </div>
+
+
+        <h2 style="margin-top:15px;">
+
+            Check Before You
+            <em>Choose.</em>
+
+        </h2>
+
+
+        <div class="verification">
+
+            <strong>
+                Project information should always be verified.
+            </strong>
+
+            Amenities, facilities, specifications, development
+            status, availability and completion timelines may
+            change. The final website should use only the
+            amenities confirmed in the latest official project
+            documents.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL CTA
+========================================= -->
+
+<section class="section final-cta">
+
+    <div class="container final-cta-inner">
+
+
+        <div>
+
+            <div class="eyebrow">
+                EXPERIENCE TRUST CITY
+            </div>
+
+
+            <h2>
+
+                See It.
+                <em>Feel It.</em>
+
+            </h2>
+
+
+            <p>
+
+                Explore the project layout and visit the site
+                to understand the development for yourself.
+
+            </p>
+
+        </div>
+
+
+        <a
+            href="contact.html"
+            class="btn"
+        >
+            Book a Site Visit →
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <img
+                src="assets/trust-city-logo.jpg"
+                alt="Trust City Township"
+                class="footer-logo"
+            >
+
+            <p>
+                Your Dream Home Awaits at Bahadurgarh.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="project.html">
+                Project
+            </a>
+
+            <a href="amenities.html">
+                Amenities
+            </a>
+
+            <a href="location.html">
+                Location
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Connect
+            </h4>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Contact
+            </h4>
+
+            <a href="tel:18002023650">
+                1800-202-3650
+            </a>
+
+            <a href="mailto:corporate@trustcitytownship.com">
+                corporate@trustcitytownship.com
+            </a>
+
+            <p>
+                Sector 36 & 41,
+                Bahadurgarh, Haryana
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <span>
+                © 2026 Trust City Township.
+                All Rights Reserved.
+            </span>
+
+            <span>
+                RERA No. HRERA-PKL-JJR-562-2024
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener(
+        "click",
+        function () {
+
+            navLinks.classList.toggle("show");
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+</html>

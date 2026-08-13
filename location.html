@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Location | Trust City Township</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* ================================
+       GLOBAL
+    ================================= */
+
+    :root {
+      --wine: #861548;
+      --dark-wine: #351321;
+      --pink: #e8a4bb;
+      --light-pink: #f4e3e9;
+      --cream: #faf7f4;
+      --white: #fff;
+      --black: #211d20;
+      --gray: #777176;
+      --border: #e8dfe3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--black);
+      background: white;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--wine);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 23px;
+      background: var(--wine);
+      color: white;
+      border: none;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+    }
+
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 84px;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo img {
+      width: 125px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: #494449;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--wine);
+    }
+
+    .nav-btn {
+      background: var(--wine);
+      color: white;
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 28px;
+      color: var(--wine);
+    }
+
+
+    /* ================================
+       LOCATION HERO
+       SAME DESIGN AS PROJECT PAGE
+    ================================= */
+
+    .location-hero {
+      min-height: 720px;
+      padding-top: 84px;
+      display: grid;
+      grid-template-columns: 44% 56%;
+      background: var(--dark-wine);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      padding:
+        80px
+        50px
+        80px
+        max(20px, calc((100vw - 1180px) / 2));
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 580px;
+    }
+
+    .hero-eyebrow {
+      color: var(--pink);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(55px, 6vw, 92px);
+      margin: 25px 0;
+      color: white;
+    }
+
+    .hero-content h1 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .hero-content p {
+      color: rgba(255,255,255,.72);
+      max-width: 510px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 636px;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-info {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      background: white;
+      padding: 20px 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    }
+
+    .hero-info strong {
+      display: block;
+      color: var(--wine);
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .hero-info span {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+
+    /* ================================
+       LOCATION INTRO
+    ================================= */
+
+    .location-intro {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .location-intro h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .location-intro h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .location-copy p {
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+
+    /* ================================
+       CONNECTIVITY
+    ================================= */
+
+    .connectivity {
+      background: var(--cream);
+    }
+
+    .heading {
+      max-width: 700px;
+    }
+
+    .heading h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .heading h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .heading p {
+      color: var(--gray);
+      margin-top: 18px;
+      line-height: 1.8;
+    }
+
+    .connect-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+      margin-top: 50px;
+    }
+
+    .connect-card {
+      background: white;
+      padding: 35px;
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .connect-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(50,20,40,.08);
+    }
+
+    .connect-number {
+      color: var(--pink);
+      font-family: "Playfair Display", serif;
+      font-size: 45px;
+    }
+
+    .connect-card h3 {
+      font-size: 26px;
+      margin: 15px 0 10px;
+    }
+
+    .connect-card p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+
+    /* ================================
+       MAP SECTION
+    ================================= */
+
+    .map-section {
+      padding: 110px 0;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: 38% 62%;
+      min-height: 560px;
+      border: 1px solid var(--border);
+    }
+
+    .map-content {
+      background: var(--dark-wine);
+      color: white;
+      padding: 60px 45px;
+      display: flex;
+      align-items: center;
+    }
+
+    .map-content h2 {
+      font-size: clamp(40px, 4vw, 60px);
+      margin: 15px 0 20px;
+    }
+
+    .map-content h2 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .map-content p {
+      color: rgba(255,255,255,.68);
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .address-box {
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.04);
+      margin-bottom: 25px;
+    }
+
+    .address-box strong {
+      display: block;
+      color: var(--pink);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 7px;
+    }
+
+    .address-box span {
+      color: rgba(255,255,255,.8);
+      font-size: 14px;
+    }
+
+    .map-frame {
+      min-height: 560px;
+      background: #eee;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      border: 0;
+    }
+
+
+    /* ================================
+       LOCATION ADVANTAGE
+    ================================= */
+
+    .advantages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 50px;
+    }
+
+    .advantage-card {
+      padding: 35px;
+      border: 1px solid var(--border);
+    }
+
+    .advantage-card h3 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .advantage-card p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .advantage-tag {
+      display: inline-block;
+      color: var(--wine);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 12px;
+    }
+
+
+    /* ================================
+       LOCATION FACTS
+    ================================= */
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+      margin-top: 45px;
+    }
+
+    .fact {
+      padding: 30px 25px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--wine);
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+      margin-bottom: 7px;
+    }
+
+    .fact span {
+      color: var(--gray);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+
+    /* ================================
+       CTA
+    ================================= */
+
+    .cta {
+      background: var(--light-pink);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta h2 {
+      margin-top: 15px;
+      font-size: clamp(42px, 5vw, 68px);
+    }
+
+    .cta h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .cta p {
+      color: var(--gray);
+      margin-top: 15px;
+    }
+
+
+    /* ================================
+       FOOTER
+    ================================= */
+
+    footer {
+      background: #24151d;
+      color: white;
+      padding-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      width: 160px;
+      background: white;
+      padding: 5px;
+    }
+
+    footer h4 {
+      color: var(--pink);
+      margin-bottom: 18px;
+    }
+
+    footer a,
+    footer p {
+      display: block;
+      color: #bcb1b6;
+      font-size: 13px;
+      margin: 9px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 18px 0;
+      color: #8f8288;
+      font-size: 11px;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    /* ================================
+       RESPONSIVE
+    ================================= */
+
+    @media(max-width:950px) {
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .location-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 500px;
+      }
+
+      .hero-content {
+        padding: 70px 30px;
+      }
+
+      .location-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .connect-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .map-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-frame {
+        min-height: 450px;
+      }
+
+      .advantages {
+        grid-template-columns: 1fr;
+      }
+
+      .facts {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width:680px) {
+
+      header,
+      .nav {
+        height: 74px;
+      }
+
+      .logo img {
+        width: 105px;
+        height: 60px;
+      }
+
+      .menu-btn {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 15px;
+        right: 15px;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .location-hero {
+        padding-top: 74px;
+      }
+
+      .hero-content {
+        padding: 65px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 52px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+
+      .connect-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-content {
+        padding: 45px 25px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        display: block;
+      }
+
+      .cta .btn {
+        margin-top: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom .container {
+        display: block;
+      }
+
+      .footer-bottom span {
+        display: block;
+        margin: 5px 0;
+      }
+
+    }
+    /* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ================================
+       HEADER
+  ================================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township Logo"
+        >
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="aboutus.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html" class="active">
+          Location
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+
+    <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- ================================
+         LOCATION HERO
+    ================================= -->
+
+    <section class="location-hero">
+
+
+      <div class="hero-content">
+
+        <div class="hero-inner">
+
+
+          <div class="hero-eyebrow">
+            LOCATION • BAHADURGARH
+          </div>
+
+
+          <h1>
+
+            Connected to<br>
+
+            <em>What Matters.</em>
+
+          </h1>
+
+
+          <p>
+
+            Trust City Township is located in Sector 36
+            &amp; 41, Bahadurgarh, Haryana — a location
+            within the Delhi NCR region that brings
+            together residential development and
+            growing urban connectivity.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a href="#location-map" class="btn">
+              View Location
+            </a>
+
+            <a href="contact.html" class="btn btn-outline">
+              Plan A Site Visit
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-image">
+
+        <!-- Replace with your actual location/map image -->
+
+        <img
+          src="assets/location.jpg"
+          alt="Trust City Township Location"
+        >
+
+
+        <div class="hero-info">
+
+          <strong>
+            TRUST CITY TOWNSHIP
+          </strong>
+
+          <span>
+            Sector 36 &amp; 41 • Bahadurgarh, Haryana
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ================================
+         LOCATION INTRO
+    ================================= -->
+
+    <section class="section">
+
+      <div class="container location-intro">
+
+
+        <div>
+
+          <span class="section-label">
+            THE LOCATION
+          </span>
+
+
+          <h2>
+
+            Where Your
+            <em>Future Begins.</em>
+
+          </h2>
+
+        </div>
+
+
+
+        <div class="location-copy">
+
+          <p>
+
+            Location is one of the most important
+            considerations when choosing a property.
+            Trust City Township is situated in
+            Bahadurgarh, Haryana, within the Delhi NCR
+            region.
+
+          </p>
+
+
+          <p>
+
+            The project is planned across Sector 36
+            and Sector 41, offering a plotted township
+            environment with residential and commercial
+            areas within the development.
+
+          </p>
+
+
+          <p>
+
+            Its position in Bahadurgarh makes the project
+            relevant for buyers looking for a location
+            connected with the wider NCR region while
+            planning their future home or investment.
+
+          </p>
+
+
+          <a href="project.html" class="btn">
+            Explore The Project →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         CONNECTIVITY
+    ================================= -->
+
+    <section class="section connectivity">
+
+
+      <div class="container">
+
+
+        <div class="heading">
+
+          <span class="section-label">
+            LOCATION ADVANTAGE
+          </span>
+
+
+          <h2>
+
+            A Location Built Around
+            <em>Connectivity.</em>
+
+          </h2>
+
+
+          <p>
+
+            The location of Trust City Township provides
+            access to the surrounding Bahadurgarh urban
+            area and the broader Delhi NCR region.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="connect-grid">
+
+
+          <article class="connect-card">
+
+            <div class="connect-number">
+              01
+            </div>
+
+            <h3>
+              Delhi NCR
+            </h3>
+
+            <p>
+
+              Bahadurgarh forms part of the Delhi NCR
+              region, connecting the project with a wider
+              urban and economic ecosystem.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="connect-card">
+
+            <div class="connect-number">
+              02
+            </div>
+
+            <h3>
+              Bahadurgarh
+            </h3>
+
+            <p>
+
+              The project is located within Bahadurgarh,
+              Haryana, an established and developing
+              urban area adjoining Delhi.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="connect-card">
+
+            <div class="connect-number">
+              03
+            </div>
+
+            <h3>
+              Planned Sectors
+            </h3>
+
+            <p>
+
+              Trust City Township is planned across
+              Sector 36 &amp; 41 with internal roads and
+              designated development areas.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         MAP
+    ================================= -->
+
+    <section
+      class="map-section"
+      id="location-map"
+    >
+
+      <div class="container map-grid">
+
+
+        <div class="map-content">
+
+          <div>
+
+            <span
+              class="section-label"
+              style="color:var(--pink);"
+            >
+              FIND TRUST CITY
+            </span>
+
+
+            <h2>
+
+              Come See The
+              <em>Location.</em>
+
+            </h2>
+
+
+            <p>
+
+              Get a better understanding of the project
+              location by visiting Trust City Township
+              and exploring the surrounding area.
+
+            </p>
+
+
+            <div class="address-box">
+
+              <strong>
+                Project Location
+              </strong>
+
+              <span>
+                Sector 36 &amp; 41,
+                Bahadurgarh, Haryana
+              </span>
+
+            </div>
+
+
+            <a
+              href="contact.html"
+              class="btn"
+            >
+              Book A Site Visit →
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="map-frame">
+
+          <!-- Replace the iframe URL with your exact Google Maps embed -->
+
+          <iframe
+            src="https://www.google.com/maps?q=Sector%2036%20Bahadurgarh%20Haryana&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         WHY THIS LOCATION
+    ================================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+
+        <div class="heading">
+
+          <span class="section-label">
+            WHY BAHADURGARH
+          </span>
+
+
+          <h2>
+
+            More Than Just an
+            <em>Address.</em>
+
+          </h2>
+
+
+          <p>
+
+            A property location becomes meaningful when
+            it supports the way people want to live,
+            work and plan for the future.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="advantages">
+
+
+          <article class="advantage-card">
+
+            <span class="advantage-tag">
+              01 • NCR
+            </span>
+
+            <h3>
+              Part of a Wider Region
+            </h3>
+
+            <p>
+
+              Bahadurgarh's position within the National
+              Capital Region gives the location relevance
+              beyond the immediate neighbourhood.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="advantage-card">
+
+            <span class="advantage-tag">
+              02 • DEVELOPMENT
+            </span>
+
+            <h3>
+              Growing Urban Environment
+            </h3>
+
+            <p>
+
+              The surrounding Bahadurgarh region continues
+              to develop as a residential and commercial
+              urban area.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="advantage-card">
+
+            <span class="advantage-tag">
+              03 • ACCESS
+            </span>
+
+            <h3>
+              Connected Surroundings
+            </h3>
+
+            <p>
+
+              The project location provides access to
+              the established road network and surrounding
+              areas of Bahadurgarh.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="advantage-card">
+
+            <span class="advantage-tag">
+              04 • LIFESTYLE
+            </span>
+
+            <h3>
+              A Place to Build
+            </h3>
+
+            <p>
+
+              A plotted development gives buyers the
+              opportunity to plan and build their own
+              home according to their requirements.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         LOCATION FACTS
+    ================================= -->
+
+    <section class="section" style="padding-top:0;">
+
+      <div class="container">
+
+
+        <div class="heading">
+
+          <span class="section-label">
+            LOCATION AT A GLANCE
+          </span>
+
+
+          <h2>
+            Know The <em>Location.</em>
+          </h2>
+
+        </div>
+
+
+
+        <div class="facts">
+
+
+          <div class="fact">
+
+            <strong>
+              Sector 36
+            </strong>
+
+            <span>
+              Project Sector
+            </span>
+
+          </div>
+
+
+
+          <div class="fact">
+
+            <strong>
+              Sector 41
+            </strong>
+
+            <span>
+              Project Sector
+            </span>
+
+          </div>
+
+
+
+          <div class="fact">
+
+            <strong>
+              Bahadurgarh
+            </strong>
+
+            <span>
+              Haryana
+            </span>
+
+          </div>
+
+
+
+          <div class="fact">
+
+            <strong>
+              Delhi NCR
+            </strong>
+
+            <span>
+              Region
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         CTA
+    ================================= -->
+
+    <section class="section cta">
+
+      <div class="container cta-inner">
+
+
+        <div>
+
+          <span class="section-label">
+            VISIT TRUST CITY
+          </span>
+
+
+          <h2>
+
+            The Best Way to Know
+            <br>
+            a Location Is to <em>See It.</em>
+
+          </h2>
+
+
+          <p>
+
+            Visit Trust City Township and explore
+            the project location for yourself.
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="contact.html"
+            class="btn"
+          >
+            Book A Site Visit →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ================================
+       FOOTER
+  ================================= -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+
+      <div>
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township"
+          class="footer-logo"
+        >
+
+        <p>
+          Your Dream Home Awaits at Bahadurgarh.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Explore
+        </h4>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Connect
+        </h4>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="contact.html">
+          Book a Site Visit
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Contact
+        </h4>
+
+        <a href="tel:18002023650">
+          1800-202-3650
+        </a>
+
+        <a href="mailto:corporate@trustcitytownship.com">
+          corporate@trustcitytownship.com
+        </a>
+
+        <p>
+          Sector 36 &amp; 41,
+          Bahadurgarh, Haryana
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <span>
+          © 2026 Trust City Township.
+          All Rights Reserved.
+        </span>
+
+        <span>
+          RERA Approved
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- ================================
+       MOBILE MENU
+  ================================= -->
+
+  <script>
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+      navLinks.classList.toggle("show");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navLinks.classList.remove("show");
+
+        });
+
+      });
+
+  </script>
+
+
+</body>
+</html>

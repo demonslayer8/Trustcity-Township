@@ -1,0 +1,2561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gallery | Trust City Township</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --wine: #861548;
+      --dark-wine: #351321;
+      --pink: #e8a4bb;
+      --light-pink: #f4e3e9;
+      --cream: #faf7f4;
+      --white: #ffffff;
+      --black: #211d20;
+      --gray: #777176;
+      --border: #e8dfe3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--black);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--wine);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 23px;
+      background: var(--wine);
+      color: white;
+      border: none;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 84px;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo img {
+      width: 125px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: #494449;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--wine);
+    }
+
+    .nav-btn {
+      background: var(--wine);
+      color: white;
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 28px;
+      color: var(--wine);
+      cursor: pointer;
+    }
+
+
+    /* =========================================
+       GALLERY HERO
+       SAME DESIGN AS PROJECT / LOCATION HERO
+    ========================================= */
+
+    .gallery-hero {
+      min-height: 720px;
+      padding-top: 84px;
+      display: grid;
+      grid-template-columns: 44% 56%;
+      background: var(--dark-wine);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      padding:
+        80px
+        50px
+        80px
+        max(20px, calc((100vw - 1180px) / 2));
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 580px;
+    }
+
+    .hero-eyebrow {
+      color: var(--pink);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(55px, 6vw, 92px);
+      margin: 25px 0;
+      color: white;
+    }
+
+    .hero-content h1 em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .hero-content p {
+      color: rgba(255,255,255,.72);
+      max-width: 510px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 636px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-info {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      background: white;
+      padding: 20px 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    }
+
+    .hero-info strong {
+      display: block;
+      color: var(--wine);
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    .hero-info span {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+
+    /* =========================================
+       GALLERY INTRO
+    ========================================= */
+
+    .gallery-intro {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .gallery-intro h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .gallery-intro h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .gallery-intro p {
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+
+    /* =========================================
+       GALLERY FILTER
+    ========================================= */
+
+    .gallery-section {
+      background: var(--cream);
+    }
+
+    .gallery-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .gallery-heading h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .gallery-heading h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .gallery-heading p {
+      color: var(--gray);
+      margin-top: 18px;
+      line-height: 1.8;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 40px 0;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: white;
+      color: #555;
+      padding: 12px 19px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--wine);
+      color: white;
+      border-color: var(--wine);
+    }
+
+
+    /* =========================================
+       MASONRY STYLE GALLERY
+    ========================================= */
+
+    .gallery-grid {
+      columns: 3 280px;
+      column-gap: 18px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #ddd;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      background:
+        linear-gradient(
+          transparent 45%,
+          rgba(38,13,26,.85)
+        );
+      opacity: 0;
+      transition: .3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       FEATURED IMAGE
+    ========================================= */
+
+    .featured-gallery {
+      padding-top: 0;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 18px;
+    }
+
+    .featured-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      cursor: pointer;
+    }
+
+    .featured-card.small {
+      min-height: 230px;
+    }
+
+    .featured-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .featured-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .featured-stack {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .featured-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 35px 25px 25px;
+      background:
+        linear-gradient(
+          transparent,
+          rgba(35,12,24,.9)
+        );
+      color: white;
+    }
+
+    .featured-caption span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--pink);
+      font-weight: 800;
+    }
+
+    .featured-caption h3 {
+      font-size: 28px;
+      margin-top: 5px;
+    }
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .cta {
+      background: var(--light-pink);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      margin-top: 15px;
+    }
+
+    .cta h2 em {
+      color: var(--wine);
+      font-style: normal;
+    }
+
+    .cta p {
+      color: var(--gray);
+      margin-top: 15px;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: #24151d;
+      color: white;
+      padding-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      width: 160px;
+      background: white;
+      padding: 5px;
+    }
+
+    footer h4 {
+      color: var(--pink);
+      margin-bottom: 18px;
+    }
+
+    footer a,
+    footer p {
+      display: block;
+      color: #bcb1b6;
+      font-size: 13px;
+      margin: 9px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 18px 0;
+      color: #8f8288;
+      font-size: 11px;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    /* =========================================
+       LIGHTBOX
+    ========================================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,8,14,.94);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media(max-width: 950px) {
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .gallery-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 500px;
+      }
+
+      .hero-content {
+        padding: 70px 30px;
+      }
+
+      .gallery-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-stack {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+
+      .featured-card,
+      .featured-card.small {
+        min-height: 350px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width: 680px) {
+
+      header,
+      .nav {
+        height: 74px;
+      }
+
+      .logo img {
+        width: 105px;
+        height: 60px;
+      }
+
+      .menu-btn {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 15px;
+        right: 15px;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .gallery-hero {
+        padding-top: 74px;
+      }
+
+      .hero-content {
+        padding: 65px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 52px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+
+      .featured-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card,
+      .featured-card.small {
+        min-height: 350px;
+      }
+
+      .cta-inner {
+        display: block;
+      }
+
+      .cta .btn {
+        margin-top: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom .container {
+        display: block;
+      }
+
+      .footer-bottom span {
+        display: block;
+        margin: 5px 0;
+      }
+
+    }
+
+    /* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+/* =========================================
+   BOOK A SITE VISIT POPUP
+========================================= */
+
+.site-visit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 15, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  z-index: 99999;
+
+  animation: overlayFade .25s ease;
+}
+
+.site-visit-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.site-visit-popup {
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  background: #fff;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  position: relative;
+
+  overflow: auto;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+
+  animation: popupOpen .3s ease;
+}
+
+
+/* LEFT SIDE */
+
+.site-visit-left {
+  background: #351321;
+  color: #fff;
+
+  padding: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.site-visit-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(232,164,187,.18);
+
+  border-radius: 50%;
+
+  right: -140px;
+  bottom: -120px;
+}
+
+.site-visit-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border: 1px solid rgba(232,164,187,.12);
+
+  border-radius: 50%;
+
+  left: -100px;
+  top: -80px;
+}
+
+.site-visit-label {
+  color: #e8a4bb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.site-visit-left h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 45px;
+  line-height: 1.08;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.site-visit-left h2 em {
+  color: #e8a4bb;
+  font-style: normal;
+}
+
+.site-visit-left > p {
+  color: rgba(255,255,255,.68);
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BENEFITS */
+
+.visit-benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.visit-benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 13px 0;
+
+  color: rgba(255,255,255,.8);
+
+  font-size: 12px;
+}
+
+.visit-check {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(232,164,187,.13);
+
+  color: #e8a4bb;
+
+  font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.site-visit-right {
+  padding: 42px 42px;
+
+  background: #fff;
+
+  position: relative;
+}
+
+.site-visit-right h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: 35px;
+
+  color: #211d20;
+
+  margin-bottom: 7px;
+}
+
+.site-visit-right > p {
+  color: #777176;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+
+/* CLOSE BUTTON */
+
+.site-visit-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  color: #555;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+
+  z-index: 5;
+}
+
+.site-visit-close:hover {
+  background: #861548;
+  border-color: #861548;
+  color: #fff;
+}
+
+
+/* FORM */
+
+.visit-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.visit-form-group {
+  margin-bottom: 15px;
+}
+
+.visit-form-group label {
+  display: block;
+
+  color: #4c464a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+
+  margin-bottom: 7px;
+}
+
+.visit-form-group input,
+.visit-form-group select,
+.visit-form-group textarea {
+  width: 100%;
+
+  border: 1px solid #e8dfe3;
+
+  background: #fff;
+
+  padding: 12px 13px;
+
+  outline: none;
+
+  color: #211d20;
+
+  font-size: 13px;
+
+  transition: .2s;
+}
+
+.visit-form-group input:focus,
+.visit-form-group select:focus,
+.visit-form-group textarea:focus {
+  border-color: #861548;
+
+  box-shadow:
+    0 0 0 3px rgba(134,21,72,.06);
+}
+
+.visit-form-group textarea {
+  min-height: 75px;
+
+  resize: vertical;
+}
+
+
+/* SUBMIT */
+
+.visit-submit {
+  width: 100%;
+
+  border: none;
+
+  background: #861548;
+
+  color: #fff;
+
+  padding: 15px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.visit-submit:hover {
+  background: #6d103b;
+
+  transform: translateY(-2px);
+}
+
+.visit-note {
+  color: #999;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  margin-top: 9px;
+
+  text-align: center;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes overlayFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes popupOpen {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .site-visit-overlay {
+    padding: 12px;
+  }
+
+  .site-visit-popup {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+  }
+
+  .site-visit-left {
+    padding: 30px 25px;
+  }
+
+  .site-visit-left h2 {
+    font-size: 35px;
+  }
+
+  .visit-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px 12px;
+  }
+
+  .visit-benefit {
+    margin: 7px 0;
+  }
+
+  .site-visit-right {
+    padding: 32px 22px;
+  }
+
+  .site-visit-right h3 {
+    font-size: 30px;
+  }
+
+  .visit-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       HEADER
+  ========================================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="index.html" class="logo">
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township Logo"
+        >
+
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+        <a href="gallery.html" class="active">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+
+     <button class="nav-cta" onclick="openSiteVisit()">
+  Book a Site Visit
+</button>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="gallery-hero">
+
+
+      <div class="hero-content">
+
+        <div class="hero-inner">
+
+
+          <div class="hero-eyebrow">
+            GALLERY • TRUST CITY TOWNSHIP
+          </div>
+
+
+          <h1>
+
+            See the Vision.<br>
+
+            <em>Experience the Place.</em>
+
+          </h1>
+
+
+          <p>
+
+            Take a closer look at Trust City Township —
+            from the master layout and plotted development
+            to the surrounding environment and the spaces
+            planned for tomorrow.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#gallery"
+              class="btn"
+            >
+              Explore Gallery
+            </a>
+
+
+            <a
+              href="project.html"
+              class="btn btn-outline"
+            >
+              View Project
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-image">
+
+        <img
+          src="assets/gallery-header.jpg"
+          alt="Trust City Township Gallery"
+        >
+
+
+        <div class="hero-info">
+
+          <strong>
+            TRUST CITY TOWNSHIP
+          </strong>
+
+          <span>
+            Sector 36 &amp; 41 • Bahadurgarh, Haryana
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         INTRO
+    ========================================= -->
+
+    <section class="section">
+
+      <div class="container gallery-intro">
+
+
+        <div>
+
+          <span class="section-label">
+            VISUAL JOURNEY
+          </span>
+
+
+          <h2>
+
+            A Different View of
+            <em>Trust City.</em>
+
+          </h2>
+
+        </div>
+
+
+
+        <div>
+
+          <p>
+
+            A project is easier to understand when you
+            can see it. Our gallery brings together the
+            visual identity, layout and development of
+            Trust City Township.
+
+          </p>
+
+
+          <p>
+
+            Explore the images below to get a better
+            sense of the planning and environment behind
+            the project.
+
+          </p>
+
+
+          <a
+            href="contact.html"
+            class="btn"
+          >
+            Plan A Site Visit →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FEATURED GALLERY
+    ========================================= -->
+
+    <section class="section featured-gallery">
+
+      <div class="container">
+
+
+        <div class="featured-grid">
+
+
+          <div
+            class="featured-card"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/trust-city-layout.jpg"
+              alt="Trust City Township Master Layout"
+            >
+
+            <div class="featured-caption">
+
+              <span>
+                MASTER PLAN
+              </span>
+
+              <h3>
+                The Township Layout
+              </h3>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="featured-stack">
+
+
+            <div
+              class="featured-card small"
+              onclick="openLightbox(this)"
+            >
+
+              <img
+                src="assets/aboutusheader.jpg"
+                alt="Trust City Township"
+              >
+
+              <div class="featured-caption">
+
+                <span>
+                  THE PROJECT
+                </span>
+
+                <h3>
+                  Planned Living
+                </h3>
+
+              </div>
+
+            </div>
+
+
+
+            <div
+              class="featured-card small"
+              onclick="openLightbox(this)"
+            >
+
+              <img
+                src="assets/location.jpg"
+                alt="Trust City Township Location"
+              >
+
+              <div class="featured-caption">
+
+                <span>
+                  LOCATION
+                </span>
+
+                <h3>
+                  Bahadurgarh
+                </h3>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MAIN GALLERY
+    ========================================= -->
+
+    <section
+      class="section gallery-section"
+      id="gallery"
+    >
+
+      <div class="container">
+
+
+        <div class="gallery-heading">
+
+          <span class="section-label">
+            EXPLORE THE GALLERY
+          </span>
+
+
+          <h2>
+
+            Moments From
+            <em>Trust City.</em>
+
+          </h2>
+
+
+          <p>
+
+            Browse through the different aspects of
+            Trust City Township and discover the project
+            from multiple perspectives.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="filter-buttons">
+
+          <button
+            class="filter-btn active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="layout"
+          >
+            Layout
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="project"
+          >
+            Project
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="location"
+          >
+            Location
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="development"
+          >
+            Development
+          </button>
+
+        </div>
+
+
+
+        <div class="gallery-grid">
+
+
+          <div
+            class="gallery-item"
+            data-category="layout"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/trust-city-layout.jpg"
+              alt="Trust City Master Layout"
+            >
+
+            <div class="gallery-overlay">
+              <span>
+                Master Layout
+              </span>
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="gallery-item"
+            data-category="project"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/aboutusheader.jpg"
+              alt="Trust City Township Project"
+            >
+
+            <div class="gallery-overlay">
+              <span>
+                Trust City Township
+              </span>
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="gallery-item"
+            data-category="location"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/location.jpg"
+              alt="Trust City Location"
+            >
+
+            <div class="gallery-overlay">
+              <span>
+                Project Location
+              </span>
+            </div>
+
+          </div>
+
+
+
+          <!--
+            Add your remaining gallery images below.
+
+            Example:
+
+            <div
+              class="gallery-item"
+              data-category="development"
+              onclick="openLightbox(this)"
+            >
+
+              <img
+                src="assets/gallery-01.jpg"
+                alt="Trust City Development"
+              >
+
+              <div class="gallery-overlay">
+                <span>
+                  Development
+                </span>
+              </div>
+
+            </div>
+          -->
+
+
+          <div
+            class="gallery-item"
+            data-category="layout"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/trust-city-layout.jpg"
+              alt="Trust City Plot Layout"
+            >
+
+            <div class="gallery-overlay">
+              <span>
+                Plot Layout
+              </span>
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="gallery-item"
+            data-category="project"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/aboutusheader.jpg"
+              alt="Trust City Development"
+            >
+
+            <div class="gallery-overlay">
+              <span>
+                Project View
+              </span>
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="gallery-item"
+            data-category="location"
+            onclick="openLightbox(this)"
+          >
+
+            <img
+              src="assets/location.jpg"
+              alt="Bahadurgarh Location"
+            >
+
+            <div class="gallery-overlay">
+              <span>
+                Location
+              </span>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="section cta">
+
+      <div class="container cta-inner">
+
+
+        <div>
+
+          <span class="section-label">
+            SEE IT FOR YOURSELF
+          </span>
+
+
+          <h2>
+
+            Pictures Tell a Story.
+            <br>
+
+            <em>The Site Tells More.</em>
+
+          </h2>
+
+
+          <p>
+
+            Visit Trust City Township and experience
+            the project and its location in person.
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <a
+            href="contact.html"
+            class="btn"
+          >
+            Book A Site Visit →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+
+      <div>
+
+        <img
+          src="assets/trust-city-logo.jpg"
+          alt="Trust City Township"
+          class="footer-logo"
+        >
+
+        <p>
+          Your Dream Home Awaits at Bahadurgarh.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Explore
+        </h4>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="project.html">
+          Project
+        </a>
+
+        <a href="amenities.html">
+          Amenities
+        </a>
+
+        <a href="location.html">
+          Location
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Connect
+        </h4>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="contact.html">
+          Book a Site Visit
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          Contact
+        </h4>
+
+        <a href="tel:18002023650">
+          1800-202-3650
+        </a>
+
+        <a href="mailto:corporate@trustcitytownship.com">
+          corporate@trustcitytownship.com
+        </a>
+
+        <p>
+          Sector 36 &amp; 41,
+          Bahadurgarh, Haryana
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <span>
+          © 2026 Trust City Township.
+          All Rights Reserved.
+        </span>
+
+        <span>
+          RERA No. HRERA-PKL-JJR-562-2024
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       LIGHTBOX
+  ========================================= -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+  >
+
+    <button
+      class="lightbox-close"
+      onclick="closeLightbox()"
+      aria-label="Close image"
+    >
+      ×
+    </button>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Gallery Image"
+    >
+
+  </div>
+
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+      navLinks.classList.toggle("show");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navLinks.classList.remove("show");
+
+        });
+
+      });
+
+
+
+    /* GALLERY FILTER */
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    const galleryItems =
+      document.querySelectorAll(".gallery-item");
+
+
+    filterButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        filterButtons.forEach(function(btn) {
+
+          btn.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+
+        const filter =
+          button.getAttribute("data-filter");
+
+
+        galleryItems.forEach(function(item) {
+
+          const category =
+            item.getAttribute("data-category");
+
+
+          if (
+            filter === "all" ||
+            category === filter
+          ) {
+
+            item.style.display = "inline-block";
+
+          } else {
+
+            item.style.display = "none";
+
+          }
+
+        });
+
+      });
+
+    });
+
+
+
+    /* LIGHTBOX */
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+
+
+    function openLightbox(item) {
+
+      const image =
+        item.querySelector("img");
+
+
+      if (!image) return;
+
+
+      lightboxImage.src =
+        image.src;
+
+
+      lightboxImage.alt =
+        image.alt;
+
+
+      lightbox.classList.add("show");
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("show");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    lightbox.addEventListener("click", function(event) {
+
+      if (event.target === lightbox) {
+
+        closeLightbox();
+
+      }
+
+    });
+
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+
+        closeLightbox();
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>
