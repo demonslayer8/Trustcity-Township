@@ -446,7 +446,75 @@
     gap: 0;
   }
 
-}</style>
+}
+/* =========================================
+   HEADER SITE VISIT BUTTON
+   ========================================= */
+.nav-cta {
+  background: #861548;
+  color: #fff;
+  padding: 14px 30px;
+  border: 1px solid #861548;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all .25s ease;
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: #6d103b;
+  border-color: #6d103b;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(134,21,72,.18);
+}
+
+
+/* Keep popup-trigger buttons visually identical to the existing CTA links. */
+.hero-actions .btn,
+.cta-box .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+
+/* =========================================
+   TRUST CITY EXACT GOOGLE MAP
+   ========================================= */
+.trust-city-map {
+  width: 100%;
+  min-height: 390px;
+  overflow: hidden;
+  position: relative;
+  background: #eee;
+}
+
+.trust-city-map iframe {
+  display: block;
+  width: 100%;
+  height: 390px;
+  min-height: 390px;
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .trust-city-map,
+  .trust-city-map iframe {
+    min-height: 320px;
+    height: 320px;
+  }
+}
+
+</style>
 
 <body>
   <header class="header" id="header">
@@ -490,7 +558,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="project.html">Explore Project <span>→</span></a>
-            <a class="btn btn-light" href="contact.html">Book a Site Visit</a>
+            <button class="btn btn-light" type="button" onclick="openSiteVisit()">Book a Site Visit</button>
           </div>
 
           <div class="trust-strip">
@@ -604,14 +672,26 @@
             the Delhi NCR region. The project is planned around convenient
             road connectivity and easy access to the surrounding urban areas.
           </p>
-          <a class="btn btn-light" href="contact.html">Get Location Details</a>
+          <a class="btn btn-light"
+             href="https://www.google.com/maps/search/?api=1&query=28.682739481799977%2C76.87520127495863"
+             target="_blank"
+             rel="noopener noreferrer">
+            Get Location Details
+          </a>
         </div>
 
         <div class="location-card">
-          <div class="map-placeholder">
-            <div class="pin">●</div>
-            <div class="map-label">TRUST CITY TOWNSHIP</div>
-            <div class="map-sub">Sector 36 &amp; 41 • Bahadurgarh • Haryana</div>
+          <div class="map-placeholder trust-city-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.5266396523743!2d76.87520127495863!3d28.682739481799977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0b00430850e7%3A0x92b62a16340d4791!2sTrust%20City%20Township!5e1!3m2!1sen!2sin!4v1787307295213!5m2!1sen!2sin"
+              title="Trust City Township exact location on Google Maps"
+              width="600"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
           </div>
         </div>
       </div>
@@ -686,7 +766,7 @@
           <h2>Your Plot. Your Home.<br><em>Your Future.</em></h2>
           <p>Schedule a site visit and explore Trust City Township, Bahadurgarh.</p>
         </div>
-        <a class="btn btn-primary" href="#enquiry">Book a Site Visit →</a>
+        <button class="btn btn-primary" type="button" onclick="openSiteVisit()">Book a Site Visit →</button>
       </div>
     </section>
 
@@ -749,7 +829,7 @@
         <a href="#gallery">Gallery</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
-        <a href="#enquiry">Book a Site Visit</a>
+        <a href="#" onclick="openSiteVisit(); return false;">Book a Site Visit</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -766,6 +846,145 @@
     </div>
   </footer>
 
+
+  <!-- =========================================
+       BOOK A SITE VISIT POPUP
+       ========================================= -->
+  <div class="site-visit-overlay" id="siteVisitOverlay" aria-hidden="true">
+    <div class="site-visit-popup" role="dialog" aria-modal="true" aria-labelledby="siteVisitTitle">
+
+      <button class="site-visit-close" type="button" id="siteVisitClose" aria-label="Close">
+        &times;
+      </button>
+
+      <div class="site-visit-left">
+        <span class="site-visit-label">TRUST CITY TOWNSHIP</span>
+
+        <h2 id="siteVisitTitle">
+          Visit Your <em>Future Home.</em>
+        </h2>
+
+        <p>
+          Plan a visit to Trust City Township, Bahadurgarh and explore
+          the project, location and available residential plots with our team.
+        </p>
+
+        <div class="visit-benefits">
+          <div class="visit-benefit">
+            <span class="visit-check">✓</span>
+            <span>Explore the township layout</span>
+          </div>
+
+          <div class="visit-benefit">
+            <span class="visit-check">✓</span>
+            <span>Get plot &amp; project details</span>
+          </div>
+
+          <div class="visit-benefit">
+            <span class="visit-check">✓</span>
+            <span>Understand location &amp; connectivity</span>
+          </div>
+
+          <div class="visit-benefit">
+            <span class="visit-check">✓</span>
+            <span>Meet our site team</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-visit-right">
+        <h3>Book a Site Visit</h3>
+        <p>Fill in your details and choose your preferred visit time.</p>
+
+        <form id="siteVisitForm">
+
+          <div class="visit-form-group">
+            <label for="visitName">Full Name *</label>
+            <input
+              type="text"
+              id="visitName"
+              name="name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="visit-form-group">
+            <label for="visitPhone">Mobile Number *</label>
+            <input
+              type="tel"
+              id="visitPhone"
+              name="phone"
+              placeholder="Enter 10-digit mobile number"
+              inputmode="numeric"
+              maxlength="10"
+              autocomplete="tel"
+              required
+            />
+          </div>
+
+          <div class="visit-form-group">
+            <label for="visitEmail">Email Address</label>
+            <input
+              type="email"
+              id="visitEmail"
+              name="email"
+              placeholder="Enter your email address"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="visit-form-row">
+            <div class="visit-form-group">
+              <label for="visitDate">Preferred Date *</label>
+              <input type="date" id="visitDate" name="date" required />
+            </div>
+
+            <div class="visit-form-group">
+              <label for="visitTime">Preferred Time *</label>
+              <select id="visitTime" name="time" required>
+                <option value="">Select time</option>
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="01:00 PM">01:00 PM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="03:00 PM">03:00 PM</option>
+                <option value="04:00 PM">04:00 PM</option>
+                <option value="05:00 PM">05:00 PM</option>
+                <option value="06:00 PM">06:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="visit-form-group">
+            <label for="visitMessage">Message</label>
+            <textarea
+              id="visitMessage"
+              name="message"
+              placeholder="Any specific requirement?"
+            ></textarea>
+          </div>
+
+          <button class="visit-submit" type="submit">
+            Confirm My Site Visit →
+          </button>
+
+          <p class="visit-note">
+            Your details will be used only to contact you regarding your site visit.
+          </p>
+
+          <p id="siteVisitSuccess" style="display:none; margin:12px 0 0; text-align:center; color:#861548; font-size:12px; font-weight:700;">
+            Thank you! Your site visit request has been received.
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="modal" id="imageModal" aria-hidden="true">
     <button class="modal-close" id="modalClose" aria-label="Close">×</button>
     <img id="modalImage" src="" alt="Trust City Township layout" />
@@ -774,6 +993,114 @@
   <a class="floating-whatsapp" href="https://wa.me/918000000000?text=Hello%20Trust%20City%20Township%2C%20I%20would%20like%20project%20details." target="_blank" rel="noopener" aria-label="WhatsApp">
     WA
   </a>
+
+
+<script>
+/* =========================================
+   BOOK A SITE VISIT POPUP
+   ========================================= */
+(function () {
+  const overlay = document.getElementById("siteVisitOverlay");
+  const closeBtn = document.getElementById("siteVisitClose");
+  const form = document.getElementById("siteVisitForm");
+  const success = document.getElementById("siteVisitSuccess");
+  const dateInput = document.getElementById("visitDate");
+
+  if (!overlay) return;
+
+  // Prevent selecting a date in the past.
+  if (dateInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+  }
+
+  window.openSiteVisit = function () {
+    overlay.classList.add("show");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    setTimeout(function () {
+      const name = document.getElementById("visitName");
+      if (name) name.focus();
+    }, 250);
+  };
+
+  window.closeSiteVisit = function () {
+    overlay.classList.remove("show");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (success) {
+      success.style.display = "none";
+    }
+  };
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", window.closeSiteVisit);
+  }
+
+  // Close when clicking the dark background.
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) {
+      window.closeSiteVisit();
+    }
+  });
+
+  // Close with Escape.
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && overlay.classList.contains("show")) {
+      window.closeSiteVisit();
+    }
+  });
+
+  // Keep phone input to digits only.
+  const phone = document.getElementById("visitPhone");
+  if (phone) {
+    phone.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "").slice(0, 10);
+    });
+  }
+
+  // Front-end form handling.
+  // This validates the request and shows confirmation without changing the
+  // existing website theme. Connect this handler to your backend/email/CRM
+  // later if you want the enquiry to be stored or sent automatically.
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const phoneValue = phone ? phone.value.trim() : "";
+      if (!/^[6-9]\d{9}$/.test(phoneValue)) {
+        alert("Please enter a valid 10-digit Indian mobile number.");
+        if (phone) phone.focus();
+        return;
+      }
+
+      if (success) {
+        success.style.display = "block";
+      }
+
+      form.reset();
+
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+    });
+  }
+})();
+</script>
 
   <script src="script.js"></script>
 </body>

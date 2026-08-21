@@ -158,15 +158,27 @@
       color: var(--wine);
     }
 
-    .nav-btn {
-      background: var(--wine);
-      color: white;
-      padding: 14px 20px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-    }
+ .nav-cta {
+  background: #861548;
+  color: #fff;
+  padding: 14px 30px;
+  border: 1px solid #861548;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: .25s ease;
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: #6d103b;
+  border-color: #6d103b;
+  transform: translateY(-2px);
+}
 
     .menu-btn {
       display: none;
@@ -1651,7 +1663,7 @@
           Home
         </a>
 
-        <a href="about.html">
+        <a href="aboutus.html">
           About Us
         </a>
 
@@ -1832,12 +1844,9 @@
           </p>
 
 
-          <a
-            href="contact.html"
-            class="btn"
-          >
-            Plan A Site Visit →
-          </a>
+        <button type="button" class="btn" onclick="openSiteVisit()">
+    Book a Site Visit →
+</button>
 
         </div>
 
@@ -2317,9 +2326,9 @@
           Contact
         </a>
 
-        <a href="contact.html">
-          Book a Site Visit
-        </a>
+        <button type="button" class="btn" onclick="openSiteVisit()">
+    Book a Site Visit →
+</button>
 
       </div>
 
@@ -2395,7 +2404,235 @@
 
   </div>
 
+<!-- =========================
+     BOOK A SITE VISIT POPUP
+========================= -->
 
+<div class="site-visit-overlay" id="siteVisitOverlay" aria-hidden="true">
+
+    <div class="site-visit-popup" role="dialog" aria-modal="true">
+
+        <button
+            type="button"
+            class="site-visit-close"
+            id="siteVisitClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <!-- LEFT -->
+        <div class="site-visit-left">
+
+            <span class="site-visit-label">
+                TRUST CITY TOWNSHIP
+            </span>
+
+            <h2>
+                Visit Your
+                <em>Future Home.</em>
+            </h2>
+
+            <p>
+                Plan a visit to Trust City Township, Bahadurgarh
+                and explore the project, location and available
+                residential plots with our team.
+            </p>
+
+            <div class="visit-benefits">
+
+                <div class="visit-benefit">
+                    <span class="visit-check">✓</span>
+                    <span>Explore the township layout</span>
+                </div>
+
+                <div class="visit-benefit">
+                    <span class="visit-check">✓</span>
+                    <span>Get plot &amp; project details</span>
+                </div>
+
+                <div class="visit-benefit">
+                    <span class="visit-check">✓</span>
+                    <span>Understand location &amp; connectivity</span>
+                </div>
+
+                <div class="visit-benefit">
+                    <span class="visit-check">✓</span>
+                    <span>Meet our site team</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="site-visit-right">
+
+            <h3>
+                Book a Site Visit
+            </h3>
+
+            <p>
+                Fill in your details and choose your preferred visit time.
+            </p>
+
+
+            <form id="siteVisitForm">
+
+                <div class="visit-form-group">
+
+                    <label for="visitName">
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="visitName"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="visit-form-group">
+
+                    <label for="visitPhone">
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="visitPhone"
+                        name="phone"
+                        placeholder="Enter 10-digit mobile number"
+                        maxlength="10"
+                        inputmode="numeric"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="visit-form-group">
+
+                    <label for="visitEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="visitEmail"
+                        name="email"
+                        placeholder="Enter your email address"
+                    >
+
+                </div>
+
+
+                <div class="visit-form-row">
+
+                    <div class="visit-form-group">
+
+                        <label for="visitDate">
+                            Preferred Date *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="visitDate"
+                            name="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="visit-form-group">
+
+                        <label for="visitTime">
+                            Preferred Time *
+                        </label>
+
+                        <select
+                            id="visitTime"
+                            name="time"
+                            required
+                        >
+
+                            <option value="">
+                                Select time
+                            </option>
+
+                            <option>09:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>01:00 PM</option>
+                            <option>02:00 PM</option>
+                            <option>03:00 PM</option>
+                            <option>04:00 PM</option>
+                            <option>05:00 PM</option>
+                            <option>06:00 PM</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="visit-form-group">
+
+                    <label for="visitMessage">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="visitMessage"
+                        name="message"
+                        placeholder="Any specific requirement?"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="visit-submit"
+                >
+                    Confirm My Site Visit →
+                </button>
+
+
+                <p class="visit-note">
+                    Your details will be used only to contact you
+                    regarding your site visit.
+                </p>
+
+                <p
+                    id="siteVisitSuccess"
+                    style="
+                        display:none;
+                        margin:12px 0 0;
+                        text-align:center;
+                        color:#861548;
+                        font-size:12px;
+                        font-weight:700;
+                    "
+                >
+                    Thank you! Your site visit request has been received.
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
   <!-- =========================================
        JAVASCRIPT
@@ -2555,7 +2792,190 @@
 
   </script>
 
+<script>
 
+/* =========================
+   SITE VISIT POPUP
+========================= */
+
+const siteVisitOverlay =
+    document.getElementById("siteVisitOverlay");
+
+const siteVisitClose =
+    document.getElementById("siteVisitClose");
+
+const siteVisitForm =
+    document.getElementById("siteVisitForm");
+
+const siteVisitSuccess =
+    document.getElementById("siteVisitSuccess");
+
+const visitPhone =
+    document.getElementById("visitPhone");
+
+const visitDate =
+    document.getElementById("visitDate");
+
+
+/* OPEN */
+
+function openSiteVisit() {
+
+    siteVisitOverlay.classList.add("show");
+
+    siteVisitOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* CLOSE */
+
+function closeSiteVisit() {
+
+    siteVisitOverlay.classList.remove("show");
+
+    siteVisitOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* CLOSE BUTTON */
+
+siteVisitClose.addEventListener(
+    "click",
+    closeSiteVisit
+);
+
+
+/* CLICK OUTSIDE */
+
+siteVisitOverlay.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === siteVisitOverlay
+        ) {
+
+            closeSiteVisit();
+
+        }
+
+    }
+);
+
+
+/* ESCAPE */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            siteVisitOverlay.classList.contains("show")
+        ) {
+
+            closeSiteVisit();
+
+        }
+
+    }
+);
+
+
+/* PHONE VALIDATION */
+
+visitPhone.addEventListener(
+    "input",
+    function() {
+
+        this.value =
+            this.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+    }
+);
+
+
+/* MINIMUM DATE = TODAY */
+
+const today =
+    new Date();
+
+const yyyy =
+    today.getFullYear();
+
+const mm =
+    String(today.getMonth() + 1)
+    .padStart(2, "0");
+
+const dd =
+    String(today.getDate())
+    .padStart(2, "0");
+
+visitDate.min =
+    `${yyyy}-${mm}-${dd}`;
+
+
+/* FORM */
+
+siteVisitForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        if (!siteVisitForm.checkValidity()) {
+
+            siteVisitForm.reportValidity();
+
+            return;
+
+        }
+
+
+        if (
+            !/^[6-9]\d{9}$/
+            .test(visitPhone.value)
+        ) {
+
+            alert(
+                "Please enter a valid 10-digit Indian mobile number."
+            );
+
+            visitPhone.focus();
+
+            return;
+
+        }
+
+
+        siteVisitSuccess.style.display =
+            "block";
+
+
+        siteVisitForm.reset();
+
+
+        visitDate.min =
+            `${yyyy}-${mm}-${dd}`;
+
+    }
+);
+
+</script>
 </body>
 
 </html>
