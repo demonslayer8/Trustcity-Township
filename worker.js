@@ -273,10 +273,12 @@ Trust City Township Website
 
       } catch (error) {
 
-        console.error(
-          "Enquiry error:",
-          error
-        );
+    console.error(
+        "Enquiry error:",
+        error instanceof Error
+            ? `${error.name}: ${error.message}\n${error.stack || ""}`
+            : JSON.stringify(error)
+    );
 
         return json(
           {
@@ -356,11 +358,12 @@ Trust City Township Website
 
       } catch (error) {
 
-        console.error(
-          "Site visit error:",
-          error
-        );
-
+    console.error(
+        "Site visit error:",
+        error instanceof Error
+            ? `${error.name}: ${error.message}\n${error.stack || ""}`
+            : JSON.stringify(error)
+    );
         return json(
           {
             success: false,
