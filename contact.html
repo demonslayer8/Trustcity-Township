@@ -2461,49 +2461,61 @@
       document.getElementById("enquiryForm");
 
 
-    enquiryForm.addEventListener("submit", function(event) {
+    enquiryForm.addEventListener("submit", async function(event) {
 
       event.preventDefault();
 
-
-      const name =
-        document.getElementById("name").value.trim();
-
-      const phone =
-        document.getElementById("phone").value.trim();
-
-      const interest =
-        document.getElementById("interest").value;
-
-      const message =
-        document.getElementById("message").value.trim();
-
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const interest = document.getElementById("interest").value;
+      const message = document.getElementById("message").value.trim();
 
       if (!name || !phone) {
-
         alert("Please enter your name and phone number.");
-
         return;
-
       }
 
+      if (!/^[6-9]\d{9}$/.test(phone)) {
+        alert("Please enter a valid 10-digit Indian mobile number.");
+        return;
+      }
 
-      /*
-        FRONT-END DEMO ONLY.
+      const submitButton = enquiryForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : "Send Enquiry →";
 
-        Connect this form to your backend/API,
-        Formspree, Netlify Forms, EmailJS, PHP,
-        Node.js, etc. for actual enquiry submission.
-      */
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
 
-      alert(
-        "Thank you, " +
-        name +
-        "! Your enquiry has been received."
-      );
+      try {
+        const response = await fetch("/api/enquiry", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, phone, email, interest, message })
+        });
 
+        let result = {};
+        try { result = await response.json(); } catch (_) {}
 
-      enquiryForm.reset();
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || "Unable to send enquiry");
+        }
+
+        alert("Thank you, " + name + "! Your enquiry has been sent successfully.");
+        enquiryForm.reset();
+
+      } catch (error) {
+        console.error("Enquiry error:", error);
+        alert("Sorry, we could not send your enquiry. Please try again or contact us directly.");
+
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
 
     });
 
@@ -2649,48 +2661,66 @@ visitDate.min =
 
 siteVisitForm.addEventListener(
     "submit",
-    function(event) {
+    async function(event) {
 
         event.preventDefault();
 
         if (!siteVisitForm.checkValidity()) {
-
             siteVisitForm.reportValidity();
-
             return;
-
         }
 
-
-        if (
-            !/^[6-9]\d{9}$/
-            .test(visitPhone.value)
-        ) {
-
-            alert(
-                "Please enter a valid 10-digit Indian mobile number."
-            );
-
+        if (!/^[6-9]\d{9}$/.test(visitPhone.value)) {
+            alert("Please enter a valid 10-digit Indian mobile number.");
             visitPhone.focus();
-
             return;
-
         }
 
+        const name = document.getElementById("visitName").value.trim();
+        const phone = document.getElementById("visitPhone").value.trim();
+        const email = document.getElementById("visitEmail").value.trim();
+        const date = document.getElementById("visitDate").value;
+        const time = document.getElementById("visitTime").value;
+        const message = document.getElementById("visitMessage").value.trim();
 
-        siteVisitSuccess.style.display =
-            "block";
+        const submitButton = siteVisitForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : "Confirm My Site Visit →";
 
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+        }
 
-        siteVisitForm.reset();
+        try {
+            const response = await fetch("/api/site-visit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, phone, email, date, time, message })
+            });
 
+            let result = {};
+            try { result = await response.json(); } catch (_) {}
 
-        visitDate.min =
-            `${yyyy}-${mm}-${dd}`;
+            if (!response.ok || !result.success) {
+                throw new Error(result.error || "Unable to send site visit request");
+            }
 
+            siteVisitSuccess.style.display = "block";
+            siteVisitForm.reset();
+            visitDate.min = `${yyyy}-${mm}-${dd}`;
+
+        } catch (error) {
+            console.error("Site visit error:", error);
+            alert("Sorry, we could not submit your site visit request. Please try again.");
+
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        }
     }
 );
-
 </script>
 
 </body>
